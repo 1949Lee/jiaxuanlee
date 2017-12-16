@@ -7,7 +7,7 @@ declare let mApp: any;
 declare let mUtil: any;
 declare let mLayout: any;
 @Component({
-selector: ".m-grid.m-grid--hor.m-grid--root.m-page",
+selector: ".m-grid.m-grid--hor.m-grid--root.m-page.lee",
 templateUrl: "./theme.component.html",
 encapsulation: ViewEncapsulation.None,
 })

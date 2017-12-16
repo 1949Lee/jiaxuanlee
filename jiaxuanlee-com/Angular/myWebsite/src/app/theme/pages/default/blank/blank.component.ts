@@ -11,5 +11,6 @@ export class BlankComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('blankComponent');
   }
 }
