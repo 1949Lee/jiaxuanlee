@@ -11,7 +11,7 @@ const routes: Routes = [
     'children': [
       {
         'path': 'index',
-        'loadChildren': '.\/pages\/default\/blank\/blank.module#BlankModule',
+        'loadChildren': '.\/pages\/default\/index\/index.module#IndexModule',
       },
       {
         'path': '',

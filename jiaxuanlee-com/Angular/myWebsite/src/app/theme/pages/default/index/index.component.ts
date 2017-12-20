@@ -2,15 +2,15 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: '.m-wrapper',
-  templateUrl: './blank.component.html',
+  templateUrl: './index.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class BlankComponent implements OnInit {
+export class IndexComponent implements OnInit {
 
   constructor() {
   }
 
   ngOnInit() {
-    console.log('blankComponent');
+    console.log('IndexComponent');
   }
 }
