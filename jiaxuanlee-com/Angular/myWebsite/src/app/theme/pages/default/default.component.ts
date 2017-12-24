@@ -15,7 +15,6 @@ constructor()  {
 
 }
 ngOnInit()  {
-    console.log('defaultComponent');
 }
 
 }

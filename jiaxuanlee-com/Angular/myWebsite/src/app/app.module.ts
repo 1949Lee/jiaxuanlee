@@ -10,6 +10,8 @@ import { ScriptLoaderService } from "./_services/script-loader.service";
 import { ThemeRoutingModule } from "./theme/theme-routing.module";
 import { AuthModule } from "./auth/auth.module";
 import { ShareModule } from './share/share.module';
+import { AppConfigJSON, appConfig } from './app.config';
+import { LoggerService } from './_services/logger.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,17 @@ import { ShareModule } from './share/share.module';
     AuthModule,
     ShareModule
   ],
-  providers: [ScriptLoaderService],
+  providers: [
+    ScriptLoaderService,
+    {
+      provide:LoggerService,
+      useFactory:(_app) => {
+        return new LoggerService(_app.isDev);
+      },
+      deps:[appConfig]
+    },
+    {provide:appConfig,useValue:AppConfigJSON}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
