@@ -18,12 +18,24 @@
 .slide-box .slide{
     display: none;
     width:100%;
-    // position: absolute;
+    position: absolute;
+}
+.slide-box .background-slide{
+    display: block;
+    width:100%;
+    opacity: 0;
 }
 .slide-box .slide.active{
     display: block;
 }
 .slide-box .slide img{
+    display: inline-block;
+    width:100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.slide-box .background-slide img{
     display: inline-block;
     width:100%;
     height: auto;
