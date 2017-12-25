@@ -1,0 +1,31 @@
+:host{
+    width: 100%;
+    // height: 100%;
+}
+.slide-wrapper{
+    width: 100%;
+    // height:734px;
+    position: relative;
+}
+.slide-box{
+    width:100%;
+    height:100%;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    overflow: hidden;
+}
+.slide-box .slide{
+    display: none;
+    width:100%;
+    // position: absolute;
+}
+.slide-box .slide.active{
+    display: block;
+}
+.slide-box .slide img{
+    display: inline-block;
+    width:100%;
+    height: auto;
+    vertical-align: middle;
+}

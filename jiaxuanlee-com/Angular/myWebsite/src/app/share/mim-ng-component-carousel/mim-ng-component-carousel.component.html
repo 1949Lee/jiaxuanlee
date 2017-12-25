@@ -1,3 +1,8 @@
-<p>
-  轮播图
-</p>
+<div class="slide-wrapper" [ngStyle]="{'height': wrapperHeight}">
+  <ul class="slide-box">
+      <li class="slide animated" [ngClass]="{active: slides[i].active}"
+      *ngFor="let url of carouselOption.imgURL;let i = index">
+          <img class [src]="url">
+      </li>
+  </ul>
+</div>
