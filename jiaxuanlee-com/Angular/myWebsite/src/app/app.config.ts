@@ -14,10 +14,10 @@ export const AppConfigJSON:myAppConfig = {
     isDev:true,
     serverURL:``,
     carousel:{
-        imgURL:[
-            `${$asssetsImg}carousel/slide1.jpg`,
-            `${$asssetsImg}carousel/slide2.jpg`,
-            `${$asssetsImg}carousel/slide3.jpg`,
+        slides:[
+            {imgURL:`${$asssetsImg}carousel/slide1.jpg`,active:true},
+            {imgURL:`${$asssetsImg}carousel/slide2.jpg`,active:false},
+            {imgURL:`${$asssetsImg}carousel/slide3.jpg`,active:false}
         ],
         imgResolution:{
             width:1920,

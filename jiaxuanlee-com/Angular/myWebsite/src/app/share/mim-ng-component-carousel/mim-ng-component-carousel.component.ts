@@ -17,11 +17,6 @@ export class MimNgComponentCarouselComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.logger.log(this.carouselOption)();
-    this.slides = [
-      {active:true},
-      {active:false},
-      {active:false}
-    ]
   }
   ngAfterViewInit() {
 
