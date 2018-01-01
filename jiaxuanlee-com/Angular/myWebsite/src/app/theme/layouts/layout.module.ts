@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { DefaultComponent } from '../pages/default/default.component';
 import { AsideNavComponent } from './aside-nav/aside-nav.component';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -10,10 +9,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HrefPreventDefaultDirective } from '../../_directives/href-prevent-default.directive';
 import { UnwrapTagDirective } from '../../_directives/unwrap-tag.directive';
+import { DefaultComponent } from '../pages/index/default/default.component';
 
 @NgModule({
 	declarations: [
-		DefaultComponent,
 		AsideNavComponent,
 		HeaderNavComponent,
 		FooterComponent,
@@ -24,7 +23,6 @@ import { UnwrapTagDirective } from '../../_directives/unwrap-tag.directive';
 		UnwrapTagDirective,
 	],
 	exports: [
-		DefaultComponent,
 		AsideNavComponent,
 		HeaderNavComponent,
 		FooterComponent,

@@ -11,7 +11,11 @@ const routes: Routes = [
     'children': [
       {
         'path': 'index',
-        'loadChildren': '.\/pages\/default\/index\/index.module#IndexModule',
+        'loadChildren': '.\/pages\/index\/index.module#IndexModule',
+      },
+      {
+        'path': 'news',
+        'loadChildren': '.\/pages\/news\/news.module#NewsModule',
       },
       {
         'path': '',
