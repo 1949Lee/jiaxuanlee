@@ -123,3 +123,23 @@
         opacity: 0;
     }
 }
+.nav-pagination-wrapper{
+    width:50%;
+    height: 70px;
+    position: absolute;
+    bottom: 35px;
+    margin: 0 auto;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-pagination-wrapper .nav-pagination{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 1);
+    color:black;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+}

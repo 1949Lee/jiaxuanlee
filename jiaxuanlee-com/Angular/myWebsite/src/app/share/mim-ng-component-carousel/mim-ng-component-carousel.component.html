@@ -8,10 +8,16 @@
           <img src="./assets/img/carousel/slide1.jpg">
       </li>
   </ul>
-  <div class="nav-button left-button-wrapper">
+  <div class="nav-button left-button-wrapper" (click)="prev()">
       <i class="fa fa-chevron-left"></i>
   </div>
-  <div class="nav-button right-button-wrapper">
+  <div class="nav-button right-button-wrapper" (click)="next()">
       <i class="fa fa-chevron-right"></i>
+  </div>
+  <div class="nav-pagination-wrapper">
+      <div class="nav-pagination" 
+      *ngFor="let slide_p of carouselOption.slides;let i_p = index;"
+      (click)="changeSlide(i_p)"
+      >{{i_p+1}}</div>
   </div>
 </div>
