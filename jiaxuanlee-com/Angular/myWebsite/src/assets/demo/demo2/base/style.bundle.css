@@ -27062,11 +27062,13 @@ select.m-select2 {
         -ms-transition: all 0.3s ease 0.3s;
         -o-transition: all 0.3s ease 0.3s;
         transition: all 0.3s ease 0.3s;
+        opacity:0;
         -webkit-transform: translateY(-100%);
         -moz-transform: translateY(-100%);
         -ms-transform: translateY(-100%);
         -o-transform: translateY(-100%);
-        transform: translateY(-100%); }
+        transform: translateY(-100%); 
+      }
     .m-header--fixed.m-header--minimize-off .m-header {
       -webkit-transition: all 0.3s ease 0.3s;
       -moz-transition: all 0.3s ease 0.3s;
@@ -27082,6 +27084,7 @@ select.m-select2 {
         transition: all 0.3s ease;
         height: 90px; }
       .m-header--fixed.m-header--minimize-off .m-header .m-header__bottom {
+        opacity:1;
         -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
         -ms-transition: all 0.3s ease;
