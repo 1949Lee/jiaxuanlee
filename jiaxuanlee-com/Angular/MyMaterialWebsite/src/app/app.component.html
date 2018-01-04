@@ -1,9 +1,16 @@
-<mat-toolbar color="primary">
-  <span>一个程序猿</span>
-  <div class="fill-remaining-space"></div>
-  <div>
-    <button mat-icon-button>
-      <mat-icon>color_lens</mat-icon>
-    </button>
-  </div>
-</mat-toolbar>
+<app-header (sideNavToggle)="snav.toggle()"></app-header>
+<!-- <div [class.lee-is-mobile]="mobileQuery.matches"> -->
+<mat-sidenav-container class="lee-sidenav-container" >
+  <mat-sidenav #snav [opened]="sideNavOpened" [mode]="mobileQuery.matches ? 'over' : 'side'" >
+    <mat-nav-list>
+      <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="lee-main-content">
+    <p *ngFor="let content of fillerContent">{{content}}</p>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- </div> -->
+

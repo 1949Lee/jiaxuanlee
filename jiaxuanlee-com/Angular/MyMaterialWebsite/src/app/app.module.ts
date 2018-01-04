@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MyMaterialModuleModule } from './shared/my-material-module/my-material-module.module';
 import { MatIconModule } from '@angular/material';
+import { LayoutModule } from './layout/layout.module';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -18,10 +20,9 @@ import { MatIconModule } from '@angular/material';
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     SharedModule,
-    // MyMaterialModuleModule,
-    // MatIconModule,
+    LayoutModule,
   ],
-  providers: [],
+  providers: [MediaMatcher],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
