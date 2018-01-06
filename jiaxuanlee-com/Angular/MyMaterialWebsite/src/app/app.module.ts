@@ -1,15 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MyMaterialModuleModule } from './shared/my-material-module/my-material-module.module';
-import { MatIconModule } from '@angular/material';
 import { LayoutModule } from './layout/layout.module';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { appConfig, AppConfigJSON } from './app.config';
+import { LoggerService } from './services/logger.service';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MediaMatcher, BreakpointObserver } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,20 @@ import { MediaMatcher } from '@angular/cdk/layout';
     BrowserAnimationsModule,
     SharedModule,
     LayoutModule,
+    FlexLayoutModule,
   ],
-  providers: [MediaMatcher],
+  providers: [
+    {provide:appConfig,useValue:AppConfigJSON},
+    {
+      provide:LoggerService,
+      useFactory:(_app) => {
+        return new LoggerService(_app.isDev);
+      },
+      deps:[appConfig]
+    },
+    MediaMatcher,
+    BreakpointObserver,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

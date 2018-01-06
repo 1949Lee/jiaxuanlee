@@ -53,7 +53,7 @@
       "config": "./karma.conf.js"
     }
   },
-  "defaults": {
+    "defaults": {
     "styleExt": "scss",
     "class": {
       "spec": false

@@ -1,7 +1,8 @@
 <app-header (sideNavToggle)="snav.toggle()"></app-header>
 <!-- <div [class.lee-is-mobile]="mobileQuery.matches"> -->
 <mat-sidenav-container class="lee-sidenav-container" >
-  <mat-sidenav #snav [opened]="sideNavOpened" [mode]="mobileQuery.matches ? 'over' : 'side'" >
+  <!-- <mat-sidenav #snav [opened]="sideNavOpened" [mode]="mobileQuery.matches ? 'over' : 'side'" > -->
+  <mat-sidenav #snav [opened]="sideNavOpened" [mode]="true ? 'over' : 'side'" >
     <mat-nav-list>
       <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
     </mat-nav-list>

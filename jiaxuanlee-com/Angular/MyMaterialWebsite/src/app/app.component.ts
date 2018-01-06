@@ -1,5 +1,8 @@
-import { ChangeDetectorRef,Component } from '@angular/core';
-import {MediaMatcher} from '@angular/cdk/layout';
+import { ChangeDetectorRef,Component, Inject } from '@angular/core';
+import { LoggerService } from './services/logger.service';
+import { appConfig } from './app.config';
+import { MediaChange, ObservableMedia } from "@angular/flex-layout";
+import { BreakpointObserver } from '@angular/cdk/layout/';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +10,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  $media: any;
   sideNavOpened: boolean;
   title = 'app';
   mobileQuery: MediaQueryList;
@@ -22,14 +26,21 @@ export class AppComponent {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+  constructor(
+     private logger:LoggerService,
+     @Inject(appConfig) private app,
+     private media: ObservableMedia
+    ) {
+      this.media.subscribe((mediaChange: MediaChange) => {
+        this.logger.log(mediaChange)();
+      });
+  }
+  ngOnInit() {
+
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    // this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   handleSideNavToggle($event:boolean){
