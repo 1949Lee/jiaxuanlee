@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,10 @@ import { appConfig, AppConfigJSON } from './app.config';
 import { LoggerService } from './services/logger.service';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MediaMatcher, BreakpointObserver } from '@angular/cdk/layout';
+import { MatIconRegistry } from '@angular/material';
+import { loadSvgResources } from './utils/svg.utils';
+import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,19 +27,23 @@ import { MediaMatcher, BreakpointObserver } from '@angular/cdk/layout';
     SharedModule,
     LayoutModule,
     FlexLayoutModule,
+    CoreModule,
+    HttpClientModule
   ],
   providers: [
-    {provide:appConfig,useValue:AppConfigJSON},
+    { provide: appConfig, useValue: AppConfigJSON },
     {
-      provide:LoggerService,
-      useFactory:(_app) => {
+      provide: LoggerService,
+      useFactory: (_app) => {
         return new LoggerService(_app.isDev);
       },
-      deps:[appConfig]
+      deps: [appConfig]
     },
     MediaMatcher,
     BreakpointObserver,
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
