@@ -1,3 +1,6 @@
+$nav-button-border-width:5px; //导航按钮边框的大小
+$negative-nav-button-border-width:-5px; //导航按钮边框的大小的负数
+$nav-button-size:60px; //导航按钮的大小
 :host {
   width: 100%; // height: 100%;
 }
@@ -171,7 +174,7 @@
 
 .nav-pagination-wrapper {
   width: 100%;
-  height: 50px;
+  height: $nav-button-size;
   position: absolute;
   bottom: 35px;
   margin: 0 auto;
@@ -181,19 +184,105 @@
 }
 
 .nav-pagination-wrapper .nav-pagination {
+  box-sizing: border-box;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: $nav-button-size;
+  height: $nav-button-size;
+  margin-right: 10px + $nav-button-border-width * 2;
   text-align: center;
   line-height: 50px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.794) 2px 2px 5px 3px;
+  position: relative;
+  border: $nav-button-border-width rgba(0, 255, 255, 0) solid;
+  background-origin: padding-box;
 }
-.nav-pagination-wrapper .nav-pagination:active{
-    box-shadow: none;
+
+.nav-pagination-wrapper .nav-pagination:active {
+  box-shadow: none;
 }
 
 .nav-pagination-wrapper .nav-pagination:last-child {
   margin-right: 0px;
+}
+
+.circle-wrapper {
+  width: calc(50% + #{$nav-button-border-width} * 2);
+  height: calc(100% + #{$nav-button-border-width} * 4);
+  overflow: hidden;
+  position: absolute;
+}
+
+.circle-wrapper.left {
+  left: $negative-nav-button-border-width * 2;
+  top: $negative-nav-button-border-width * 2;
+}
+
+.circle-wrapper.right {
+  right: $negative-nav-button-border-width * 2;
+  top: $negative-nav-button-border-width * 2;
+}
+
+.circle-wrapper .circle {
+  // width: calc(200% + #{$nav-button-border-width} * 2);
+  // height: calc(100% + #{$nav-button-border-width} * 2);
+  width: calc(200%);
+  height: calc(100%);
+  border-radius: 50%;
+  border: $nav-button-border-width rgba(255, 255, 255, .5) solid;
+  position: absolute;
+  opacity: 0;
+}
+
+.circle-wrapper.left .circle {
+  border-top-color: transparent;
+  border-right-color: transparent;
+  transform: rotate(calc(0deg - 135deg));
+}
+
+.nav-pagination-wrapper .nav-pagination.active .circle-wrapper.left .circle {
+  animation: animation-slide-nav-left 3s linear 3s both;
+}
+
+.circle-wrapper.right .circle {
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  right: 0px;
+  transform: rotate(calc(0deg - 135deg));
+}
+
+.nav-pagination-wrapper .nav-pagination.active .circle-wrapper.right .circle {
+  animation: animation-slide-nav-right 3s linear 0s both;
+}
+
+@keyframes animation-slide-nav-left {
+  0% {
+    opacity: 1;
+    transform: rotate(calc(0deg - 135deg));
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(calc(45deg));
+  }
+}
+
+@keyframes animation-slide-nav-right {
+  0% {
+    opacity: 1;
+    transform: rotate(calc(0deg - 135deg));
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(calc(45deg));
+  }
+}
+
+.ratio-1 .circle-wrapper.left .circle {
+  transform: rotate(calc(225deg));
+  /*transform: rotate(calc(45deg));*/
+}
+
+.ratio-1 .circle-wrapper.right .circle {
+  transform: rotate(calc(0deg - 135deg + 360deg / 100 * 1));
+  /*transform: rotate(calc(0deg - 135deg));*/
 }

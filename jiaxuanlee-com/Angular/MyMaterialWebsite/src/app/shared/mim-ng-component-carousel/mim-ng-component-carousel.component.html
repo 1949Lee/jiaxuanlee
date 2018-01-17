@@ -30,10 +30,18 @@
     </div>
   </div>
   <div class="nav-pagination-wrapper">
-    <div class="nav-pagination background-image-center" 
+    <div class="nav-pagination background-image-center nav-animation-wrapper" 
+    [ngClass]="{active: slide_p.active}" 
     *ngFor="let slide_p of carouselOption.slides;let i_p = index;" 
     [ngStyle]="{'background-image': 'url(\''+carouselOption.slides[i_p]?.imgURL+'\')'}"
     (click)="changeSlide(i_p)"
-    ></div>
+    >
+      <div class="circle-wrapper left">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-wrapper right">
+        <div class="circle"></div>
+      </div>
+  </div>
   </div>
 </div>
