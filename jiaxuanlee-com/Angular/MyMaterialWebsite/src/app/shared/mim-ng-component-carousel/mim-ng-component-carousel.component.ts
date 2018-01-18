@@ -17,6 +17,7 @@ export class MimNgComponentCarouselComponent implements OnInit {
   // lastIndex: number;//上一个图片下标
   prevIndex: number;//向左切换的图片下标,上一个图片下标
   nextIndex: number;//向右切换的图片下标
+  navButtonAnimationPlayed:string = 'paused';
 
 
   constructor( @Inject(appConfig) private app, private logger: LoggerService) { 

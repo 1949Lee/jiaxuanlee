@@ -286,3 +286,7 @@ $nav-button-size:60px; //导航按钮的大小
   transform: rotate(calc(0deg - 135deg + 360deg / 100 * 1));
   /*transform: rotate(calc(0deg - 135deg));*/
 }
+
+.animation-played-inherit {
+  animation-play-state: inherit !important;
+}

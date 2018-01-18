@@ -33,14 +33,17 @@
     <div class="nav-pagination background-image-center nav-animation-wrapper" 
     [ngClass]="{active: slide_p.active}" 
     *ngFor="let slide_p of carouselOption.slides;let i_p = index;" 
-    [ngStyle]="{'background-image': 'url(\''+carouselOption.slides[i_p]?.imgURL+'\')'}"
+    [ngStyle]="{
+      'background-image': 'url(\''+carouselOption.slides[i_p]?.imgURL+'\')',
+      'animation-play-state':navButtonAnimationPlayed
+              }"
     (click)="changeSlide(i_p)"
     >
-      <div class="circle-wrapper left">
-        <div class="circle"></div>
+      <div class="circle-wrapper left animation-played-inherit">
+        <div class="circle animation-played-inherit"></div>
       </div>
-      <div class="circle-wrapper right">
-        <div class="circle"></div>
+      <div class="circle-wrapper right animation-played-inherit">
+        <div class="circle animation-played-inherit"></div>
       </div>
   </div>
   </div>
