@@ -31,9 +31,9 @@ export class AppComponent {
      @Inject(appConfig) private app,
      private media: ObservableMedia
     ) {
-      this.media.subscribe((mediaChange: MediaChange) => {
-        this.logger.log(mediaChange)();
-      });
+      // this.media.subscribe((mediaChange: MediaChange) => {
+      //   this.logger.log(mediaChange)();
+      // });
   }
   ngOnInit() {
 

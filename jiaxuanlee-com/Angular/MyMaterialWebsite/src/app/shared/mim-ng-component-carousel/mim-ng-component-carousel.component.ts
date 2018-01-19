@@ -3,6 +3,8 @@ import { appConfig } from '../../app.config';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { findIndex, map } from 'lodash';
 import { LoggerService } from '../../services/logger.service';
+import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { LeeService } from '../../services/lee.service';
 
 @Component({
   selector: 'app-mim-ng-component-carousel',
@@ -10,6 +12,9 @@ import { LoggerService } from '../../services/logger.service';
   styleUrls: ['./mim-ng-component-carousel.component.scss']
 })
 export class MimNgComponentCarouselComponent implements OnInit {
+
+
+  viewportSize: { height: number; width: number; };//当前可视窗口的大小，根据视口大小实时调整
 
   @Input('options') carouselOption: any;
   wrapperHeight: string;
@@ -20,7 +25,12 @@ export class MimNgComponentCarouselComponent implements OnInit {
   navButtonAnimationPlayed:string = 'paused';
 
 
-  constructor( @Inject(appConfig) private app, private logger: LoggerService) { 
+  constructor( 
+    @Inject(appConfig) private app, 
+    private logger: LoggerService,
+    private media: ObservableMedia,
+    private lee:LeeService
+  ) { 
     
   }
 
@@ -30,6 +40,10 @@ export class MimNgComponentCarouselComponent implements OnInit {
       return slide.active;
     });
     this.changeIndex(this.currentIndex);
+    this.media.subscribe((mediaChange: MediaChange) => {
+      // this.logger.log(mediaChange)();
+      this.setBackgroundSize(this.lee.ViewportSize());
+    });
   }
 
   next() {
@@ -68,6 +82,10 @@ export class MimNgComponentCarouselComponent implements OnInit {
       return slide;
     });
     this.carouselOption.slides = temp;
+  }
+
+  setBackgroundSize(viewport: {height:number,width:number}): any {
+    this.viewportSize = viewport;
   }
 
 }

@@ -6,7 +6,7 @@
       <img class [src]="slide.imgURL">
     </li>
     <li class="background-slide">
-      <img src="./assets/img/carousel/slide1.jpg">
+      <img src="./assets/img/carousel/slide1.jpg" [ngStyle]="{'height.px':viewportSize.height}">
     </li>
   </ul>
   <div class="nav-button left-button-wrapper" (click)="prev()">

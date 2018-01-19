@@ -15,6 +15,7 @@ import { MatIconRegistry } from '@angular/material';
 import { loadSvgResources } from './utils/svg.utils';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LeeService } from './services/lee.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     },
     MediaMatcher,
     BreakpointObserver,
+    LeeService
   ],
   bootstrap: [AppComponent]
 })
