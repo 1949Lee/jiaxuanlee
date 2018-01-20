@@ -13,7 +13,7 @@ import { LeeService } from '../../services/lee.service';
 })
 export class MimNgComponentCarouselComponent implements OnInit {
 
-
+  animationTimer: any;//当前轮播图的定时器
   viewportSize: { height: number; width: number; };//当前可视窗口的大小，根据视口大小实时调整
 
   @Input('options') carouselOption: any;
@@ -22,16 +22,16 @@ export class MimNgComponentCarouselComponent implements OnInit {
   // lastIndex: number;//上一个图片下标
   prevIndex: number;//向左切换的图片下标,上一个图片下标
   nextIndex: number;//向右切换的图片下标
-  navButtonAnimationPlayed:string = 'paused';
+  navButtonAnimationPlayed: string = 'paused';
 
 
-  constructor( 
-    @Inject(appConfig) private app, 
+  constructor(
+    @Inject(appConfig) private app,
     private logger: LoggerService,
     private media: ObservableMedia,
-    private lee:LeeService
-  ) { 
-    
+    private lee: LeeService
+  ) {
+
   }
 
   ngOnInit() {
@@ -44,6 +44,23 @@ export class MimNgComponentCarouselComponent implements OnInit {
       // this.logger.log(mediaChange)();
       this.setBackgroundSize(this.lee.ViewportSize());
     });
+    this.startSlide();
+  }
+
+  ngOnDestroy() {
+    this.pauseSlide();
+  }
+
+  startSlide(){
+    this.navButtonAnimationPlayed = "running";
+    this.animationTimer = setInterval(() => { 
+      this.changeSlide("+");
+    }, 6000);
+  }
+
+  pauseSlide(){
+    clearInterval(this.animationTimer);
+    this.navButtonAnimationPlayed = "paused";
   }
 
   next() {
@@ -76,7 +93,7 @@ export class MimNgComponentCarouselComponent implements OnInit {
 
   changeSlide(directve: any) {
     this.changeIndex(directve);
-    
+
     const temp: any = this.carouselOption.slides.map((slide, i) => {
       slide.active = i == this.currentIndex ? true : false;
       return slide;
@@ -84,8 +101,16 @@ export class MimNgComponentCarouselComponent implements OnInit {
     this.carouselOption.slides = temp;
   }
 
-  setBackgroundSize(viewport: {height:number,width:number}): any {
+  setBackgroundSize(viewport: { height: number, width: number }): any {
     this.viewportSize = viewport;
+  }
+
+  pausedAnimation(){
+    this.pauseSlide();
+  }
+
+  resumeAnimation(){
+    this.startSlide();
   }
 
 }

@@ -7,7 +7,7 @@ $nav-button-size:60px; //导航按钮的大小
 
 .background-image-center {
   background-position: center;
-  background-repeat: no-repeat;
+  // background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -240,6 +240,7 @@ $nav-button-size:60px; //导航按钮的大小
   transform: rotate(calc(0deg - 135deg));
 }
 
+
 .nav-pagination-wrapper .nav-pagination.active .circle-wrapper.left .circle {
   animation: animation-slide-nav-left 3s linear 3s both;
 }
@@ -289,4 +290,14 @@ $nav-button-size:60px; //导航按钮的大小
 
 .animation-played-inherit {
   animation-play-state: inherit !important;
+}
+
+.circle-wrapper.paused.left .circle {
+  animation: none;
+  transform: rotate(45deg) !important;
+}
+
+.circle-wrapper.paused.right .circle {
+  animation: none;
+  transform: rotate(45deg) !important;
 }

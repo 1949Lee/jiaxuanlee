@@ -1,4 +1,4 @@
-<div class="slide-wrapper" [ngStyle]="{'height': wrapperHeight}">
+<div class="slide-wrapper" [ngStyle]="{'height': wrapperHeight}" (mouseover)="pausedAnimation()" (mouseout)="resumeAnimation()">
   <ul class="slide-box">
     <li class="slide animated" [ngClass]="{active: slide.active}" 
     *ngFor="let slide of carouselOption.slides;let i = index"
@@ -39,10 +39,14 @@
               }"
     (click)="changeSlide(i_p)"
     >
-      <div class="circle-wrapper left animation-played-inherit">
+      <div class="circle-wrapper left animation-played-inherit"
+      [ngClass]="{paused: navButtonAnimationPlayed == 'paused'}"
+      >
         <div class="circle animation-played-inherit"></div>
       </div>
-      <div class="circle-wrapper right animation-played-inherit">
+      <div class="circle-wrapper right animation-played-inherit" 
+      [ngClass]="{paused: navButtonAnimationPlayed == 'paused'}"
+      >
         <div class="circle animation-played-inherit"></div>
       </div>
   </div>
