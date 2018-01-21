@@ -40,10 +40,11 @@ export class MimNgComponentCarouselComponent implements OnInit {
       return slide.active;
     });
     this.changeIndex(this.currentIndex);
-    this.media.subscribe((mediaChange: MediaChange) => {
-      // this.logger.log(mediaChange)();
-      this.setBackgroundSize(this.lee.ViewportSize());
-    });
+    this.setBackgroundSize(this.lee.viewport.ViewportSize());
+    this.lee.viewport.viewport$.subscribe((view) => {
+      this.logger.log(view)();
+      this.setBackgroundSize(view);
+    })
     this.startSlide();
   }
 

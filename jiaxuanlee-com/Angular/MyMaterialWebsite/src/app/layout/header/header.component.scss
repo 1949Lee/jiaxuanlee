@@ -2,15 +2,30 @@ mat-toolbar .logo {
   margin-left: 1em;
   margin-right: 1em;
 }
-.lee-header{
+
+.lee-header {
   position: relative;
-  z-index:102;
+  z-index: 102;
 }
-.menu{
+
+.menu {
   display: flex;
   justify-content: flex-start;
+  height: 100%;
 }
-.menu .menu-button{
-  font-size: 20px;
+
+.menu .menu-button-wrapper {
+  height: 100%;
   margin-left: 1em;
+  position: relative;
+}
+.menu .menu-button-wrapper .menu-sub-show-wrapper{
+  position: absolute;
+  z-index: 105;
+  background-color: rgba($color: #000000, $alpha: .4);
+}
+
+.menu .menu-button-wrapper .menu-button {
+  font-size: 20px;
+  height: 100%;
 }

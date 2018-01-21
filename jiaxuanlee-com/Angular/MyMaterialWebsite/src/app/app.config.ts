@@ -8,9 +8,25 @@ export interface myAppConfig{
     carousel:{[key:string]:any};
     layout:{[key:string]:any};
     footer:{[key:string]:any};
+    header:{[key:string]:any};
 }
 const $asssets = `./assets/`;
 const $asssetsImg = `./assets/img/`;
+const dict = {
+    cn:{
+        header:{
+            items:{
+                '1':"首页",
+                '11':"首页1",
+                '12':"首页2",
+                '2':"豆瓣电影",
+                '21':"最新电影",
+                '22':"电影排行",
+                '3':"举例说明",
+            }
+        }
+    },
+}
 
 export const AppConfigJSON:myAppConfig = {
     isDev:true,
@@ -37,6 +53,14 @@ export const AppConfigJSON:myAppConfig = {
     },
     footer:{
         height:72
+    },
+    header:{
+        isDragable:false,
+        items:[
+            {id:'index',text:dict.cn.header.items['1'],subItems:[dict.cn.header.items['11'],dict.cn.header.items['12']]},
+            {id:'movies',text:dict.cn.header.items['2'],subItems:[dict.cn.header.items['21'],dict.cn.header.items['22']]},
+            {id:'form',text:dict.cn.header.items['3'],subItems:null},
+        ]
     }
 } 
 

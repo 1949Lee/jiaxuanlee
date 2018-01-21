@@ -1,9 +1,10 @@
-import { ChangeDetectorRef,Component, Inject } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject } from '@angular/core';
 import { LoggerService } from './services/logger.service';
 import { appConfig } from './app.config';
 import { MediaChange, ObservableMedia } from "@angular/flex-layout";
 import { BreakpointObserver } from '@angular/cdk/layout/';
 import { LeeService } from './services/lee.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,30 +20,38 @@ export class AppComponent {
 
   fillerNav = Array(50).fill(0).map((_, i) => `Nav Item ${i + 1}`);
 
-  
+
 
   private _mobileQueryListener: () => void;
 
   constructor(
-     private logger:LoggerService,
-     @Inject(appConfig) private app,
-     private media: ObservableMedia,
-     private lee:LeeService
-    ) {
-      // this.media.subscribe((mediaChange: MediaChange) => {
-      //   this.logger.log(mediaChange)();
-      // });
-      this.viewportSize = lee.ViewportSize();
+    private logger: LoggerService,
+    @Inject(appConfig) private app,
+    private media: ObservableMedia,
+    private lee: LeeService
+  ) {
+    // this.media.subscribe((mediaChange: MediaChange) => {
+    //    this.logger.log(this.lee.ViewportSize())();
+    // });
+    this.viewportSize = this.lee.viewport.ViewportSize();
+    this.lee.viewport.viewport$.subscribe((view) => {
+      this.viewportSize = view;
+    })
   }
   ngOnInit() {
-
+    Observable.fromEvent(window, 'resize')
+      .debounceTime(300) // 以免频繁处理
+      .subscribe((event) => {
+        // 这里处理页面变化时的操作
+        this.lee.viewport.changeViewportSize();
+      });
   }
 
   ngOnDestroy(): void {
     // this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  handleSideNavToggle($event:boolean){
+  handleSideNavToggle($event: boolean) {
     this.sideNavOpened = $event;
   }
 

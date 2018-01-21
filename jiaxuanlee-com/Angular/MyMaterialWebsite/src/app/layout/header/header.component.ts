@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Router ,ActivationStart,ActivationEnd} from '@angular/router';
 import { LoggerService } from '../../services/logger.service';
+import { appConfig } from '../../app.config';
 
 @Component({
   selector: 'app-header',
@@ -13,18 +14,20 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private logger:LoggerService
+    private logger:LoggerService,
+    @Inject(appConfig) private app,
   ) {
+    this.logger.log(this.app.header)();
     this.router.events.subscribe( (e:any) =>{
       if(e instanceof ActivationStart){
         this.logger.log(e.snapshot.routeConfig)();
         if(e.snapshot.routeConfig.path == "index"){
-          this.logger.log('导航首页开始')();
+          // this.logger.log('导航首页开始')();
         }
       }
       else if(e instanceof ActivationEnd){
         if(e.snapshot.routeConfig.path == "index"){
-          this.logger.log('导航首页结束')();
+          // this.logger.log('导航首页结束')();
         }
       }
     })

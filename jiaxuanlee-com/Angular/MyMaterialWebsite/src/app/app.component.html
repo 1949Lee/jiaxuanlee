@@ -1,4 +1,3 @@
-<!-- <div [class.lee-is-mobile]="mobileQuery.matches"> -->
 <mat-sidenav-container class="lee-sidenav-container">
   <!-- <mat-sidenav #snav [opened]="sideNavOpened" [mode]="mobileQuery.matches ? 'over' : 'side'" > -->
   <mat-sidenav #snav [opened]="sideNavOpened" [mode]="true ? 'over' : 'side'">
@@ -7,13 +6,12 @@
     </mat-nav-list>
   </mat-sidenav>
 
+  
   <mat-sidenav-content class="lee-main-content">
-    <app-header class="fixed" (sideNavToggle)="snav.toggle()"></app-header>
-    <div class="fluid-container" [ngStyle]="{'min-height':viewportSize.height-app.footer.height+'px'}">
+      <app-header class="fixed" (sideNavToggle)="snav.toggle()" [ngStyle]="{'width': viewportSize.width+'px'}"></app-header>
+    <div #container class="fluid-container" [ngStyle]="{'min-height':viewportSize.height - app.footer.height+'px'}">
       <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<!-- </div> -->
