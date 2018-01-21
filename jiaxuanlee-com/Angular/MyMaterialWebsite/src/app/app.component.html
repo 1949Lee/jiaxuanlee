@@ -10,9 +10,7 @@
   <mat-sidenav-content class="lee-main-content">
     <app-header class="fixed" (sideNavToggle)="snav.toggle()"></app-header>
     <div class="fluid-container">
-      <app-mim-ng-component-carousel [options]="app.carousel"></app-mim-ng-component-carousel>
-      <!-- <router-outlet></router-outlet> -->
-      <p *ngFor="let content of fillerContent">{{content}}</p>
+      <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
   </mat-sidenav-content>

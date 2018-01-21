@@ -16,10 +16,11 @@ import { loadSvgResources } from './utils/svg.utils';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LeeService } from './services/lee.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { LeeService } from './services/lee.service';
     LayoutModule,
     FlexLayoutModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: appConfig, useValue: AppConfigJSON },
