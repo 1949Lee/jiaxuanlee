@@ -9,7 +9,7 @@
 
   <mat-sidenav-content class="lee-main-content">
     <app-header class="fixed" (sideNavToggle)="snav.toggle()"></app-header>
-    <div class="fluid-container">
+    <div class="fluid-container" [ngStyle]="{'min-height':viewportSize.height-app.footer.height+'px'}">
       <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>

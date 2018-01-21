@@ -6,3 +6,11 @@ mat-toolbar .logo {
   position: relative;
   z-index:102;
 }
+.menu{
+  display: flex;
+  justify-content: flex-start;
+}
+.menu .menu-button{
+  font-size: 20px;
+  margin-left: 1em;
+}

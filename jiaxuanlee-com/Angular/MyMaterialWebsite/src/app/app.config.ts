@@ -7,6 +7,7 @@ export interface myAppConfig{
     serverURL:string;
     carousel:{[key:string]:any};
     layout:{[key:string]:any};
+    footer:{[key:string]:any};
 }
 const $asssets = `./assets/`;
 const $asssetsImg = `./assets/img/`;
@@ -33,6 +34,9 @@ export const AppConfigJSON:myAppConfig = {
             lg:`(min-width: 992px) and (max-width: 1199.99px) and (orientation: portrait), (min-width: 992px) and (max-width: 1199.99px) and (orientation: landscape)`,
             xl:`(min-width: 1200px) and (orientation: portrait), (min-width: 1200px) and (orientation: landscape)`,
         }
+    },
+    footer:{
+        height:72
     }
 } 
 

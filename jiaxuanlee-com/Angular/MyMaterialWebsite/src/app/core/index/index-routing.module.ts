@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DefaultComponent } from './default/default.component';
 
 const routes: Routes = [
-    { path: '', component: DefaultComponent }
+    { path: 'index', component: DefaultComponent }
 ];
 
 @NgModule({
