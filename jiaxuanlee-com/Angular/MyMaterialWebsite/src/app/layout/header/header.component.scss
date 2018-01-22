@@ -19,45 +19,123 @@ mat-toolbar .logo {
   margin-left: 1em;
   position: relative;
 }
-.menu .menu-button-wrapper.active,.menu .menu-button-wrapper.focus{
-  background: #48218a;
-  // box-shadow: black 0px 0px 10px;
+
+.menu .menu-button-wrapper.active,
+.menu .menu-button-wrapper.focus {
+  background: #48218a; // box-shadow: black 0px 0px 10px;
 }
 
-.menu .menu-button-wrapper .menu-sub-show-wrapper{
+.menu .menu-button-wrapper .menu-sub-show-wrapper {
   position: fixed;
   z-index: 103;
   background-color: transparent;
   left: 0;
   display: none;
 }
-.menu .menu-button-wrapper.focus .menu-sub-show-wrapper{
+
+.menu .menu-button-wrapper.focus .menu-sub-show-wrapper {
   display: block;
 }
 
 .menu .menu-button-wrapper .menu-button {
-  font:500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
   height: 100%;
 }
 
-.menu>.menu-button-wrapper .submenu{
+.menu>.menu-button-wrapper .submenu {
   display: none;
   background: #48218a;
   border-bottom-right-radius: 0.3em;
   border-bottom-left-radius: 0.3em;
-  box-shadow: 5px 10px 10px 2px rgba(0, 0, 0, .3);
-  // 0 7px 34px 16px rgba(0, 0, 0, .12);
+  box-shadow: 5px 10px 10px 2px rgba(0, 0, 0, .3); // 0 7px 34px 16px rgba(0, 0, 0, .12);
   position: absolute;
-  z-index:104;
+  z-index: 104;
 }
 
-.menu>.menu-button-wrapper.focus .submenu{
+.menu>.menu-button-wrapper.focus .submenu {
   display: block;
 }
 
-.menu>.menu-button-wrapper .submenu button{
-  font:500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+.menu>.menu-button-wrapper .submenu button {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
   width: 100%;
   height: 2em;
 }
 
+mat-toolbar.top .logo {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+mat-toolbar.top {
+  background: transparent;
+  box-shadow: none;
+  font-weight: bold;
+}
+
+.top .lee-header {
+  position: relative;
+  z-index: 102;
+  font-weight: bold;
+}
+
+.top .menu {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.top .menu .menu-button-wrapper {
+  height: 100%;
+  margin-left: 0;
+  position: relative;
+}
+
+.top .menu .menu-button-wrapper.active {
+  background: transparent;
+  color: #673ab7; // box-shadow: black 0px 0px 10px;
+}
+
+.top .menu .menu-button-wrapper.focus {
+  background: transparent;
+  color: currentColor; // box-shadow: black 0px 0px 10px;
+}
+
+.top .menu .menu-button-wrapper .menu-sub-show-wrapper {
+  position: fixed;
+  z-index: 103;
+  background-color: transparent;
+  left: 0;
+  display: none;
+}
+
+.top .menu .menu-button-wrapper.focus .menu-sub-show-wrapper {
+  display: block;
+}
+
+.top .menu .menu-button-wrapper .menu-button {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  height: 100%;
+}
+
+.top .menu>.menu-button-wrapper .submenu {
+  display: none;
+  background: rgba(35, 5, 70, 0.2);
+  border-bottom-right-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  box-shadow: 5px 10px 10px 2px rgba(0, 0, 0, .3); // 0 7px 34px 16px rgba(0, 0, 0, .12);
+  position: absolute;
+  z-index: 104;
+}
+
+.top .menu>.menu-button-wrapper.focus .submenu {
+  display: block;
+}
+
+.top .menu>.menu-button-wrapper .submenu button {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  width: 100%;
+  height: 2em;
+}

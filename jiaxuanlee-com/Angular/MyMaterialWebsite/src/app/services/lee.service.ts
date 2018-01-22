@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class LeeService {
   viewport: ViewPort;
+  contentScroll:ContentScroll;
 
 
   constructor(
@@ -15,6 +16,7 @@ export class LeeService {
   ) {
     // this.logger.log('我的服务已启动')(); 
     this.viewport = new ViewPort(app,logger);
+    this.contentScroll = new ContentScroll(app,logger);
   }
 
 
@@ -51,5 +53,21 @@ class ViewPort{
       };
     }
     return temp;
+  }
+}
+
+class ContentScroll {
+  scroll = new Subject<any>();
+  scroll$ = this.scroll.asObservable();
+
+  constructor(
+    @Inject(appConfig) private app,
+    private logger: LoggerService
+  ){
+    
+  }
+
+  change(scrollTop){
+    this.scroll.next(scrollTop);
   }
 }

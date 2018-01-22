@@ -3,7 +3,7 @@ import { Router, ActivationStart, ActivationEnd } from '@angular/router';
 import { LoggerService } from '../../services/logger.service';
 import { appConfig } from '../../app.config';
 import { LeeService } from '../../services/lee.service';
-import  * as _  from 'lodash';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,8 @@ import  * as _  from 'lodash';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
- 
+  public isTop: boolean;
+
   @Output() sideNavToggle: EventEmitter<boolean> = new EventEmitter();
   public viewport: { [key: string]: any };
   // activeRoutePath: string;
@@ -28,15 +29,26 @@ export class HeaderComponent implements OnInit {
       if (e instanceof ActivationStart) {
         this.logger.log(e.snapshot.routeConfig)();
         // this.activeRoutePath = e.snapshot.routeConfig.path;
+        if (e.snapshot.routeConfig.path == 'index') {
+          if(
+            document.getElementsByTagName('mat-sidenav-content')[0].scrollTop <
+            this.app.header.height / 2
+          ){
+            this.isTop = true;
+          }
+        }
+        else{
+          this.isTop = false;
+        }
         this.app.header.items = this.app.header.items.map((item) => {
-          if(item.path == e.snapshot.routeConfig.path){
+          if (item.path == e.snapshot.routeConfig.path) {
             item.active = true;
           }
-          else{
-            if(_.filter(item.subItems,(subItem) => { return subItem.path == e.snapshot.routeConfig.path}).length != 0){
+          else {
+            if (_.filter(item.subItems, (subItem) => { return subItem.path == e.snapshot.routeConfig.path }).length != 0) {
               item.active = true;
             }
-            else{
+            else {
               item.active = false;
             }
           }
@@ -48,6 +60,15 @@ export class HeaderComponent implements OnInit {
       }
     })
     this.viewport = this.lee.viewport.ViewportSize();
+    this.lee.contentScroll.scroll$.debounceTime(150).subscribe((scrollTop) => {
+      // this.logger.log(scrollTop)();
+      if(scrollTop >= 64){
+        this.isTop = false;
+      }
+      else{
+        this.isTop = true;
+      }
+    });
   }
 
   ngOnInit() {
@@ -60,27 +81,27 @@ export class HeaderComponent implements OnInit {
     this.sideNavToggle.emit(true);
   }
 
-  menuButtonClick(i){
-    this.app.header.items = this.app.header.items.map((item,index) =>{
-      if(index == i){
-        if(item.path){
+  menuButtonClick(i) {
+    this.app.header.items = this.app.header.items.map((item, index) => {
+      if (index == i) {
+        if (item.path) {
           item.active = true;
           item.focus = false;
         }
-        else{
+        else {
           item.active = false;
           item.focus = true;
         }
       }
-      else{
-        item.active = false;
-        item.focus = false;
-      }
+      // else{
+      //   item.active = false;
+      //   item.focus = false;
+      // }
       return item;
     })
   }
 
-  submenuButtonClick(i){
+  submenuButtonClick(i) {
 
   }
 

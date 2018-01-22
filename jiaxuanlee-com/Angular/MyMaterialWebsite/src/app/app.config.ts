@@ -77,6 +77,7 @@ export class AppConfig implements myAppConfig {
     resetheader() {
         return {
             isDragable: false,
+            height:64,
             items: [
                 {
                     id: 'index', text: dict[this.lang].header.items['1'],

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Inject, ViewChild, ElementRef,AfterViewInit,enableProdMode } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, ViewChild, ElementRef, AfterViewInit, enableProdMode } from '@angular/core';
 import { LoggerService } from './services/logger.service';
 import { appConfig } from './app.config';
 import { MediaChange, ObservableMedia } from "@angular/flex-layout";
@@ -15,7 +15,7 @@ enableProdMode();
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-  widthWithoutScroll:any;
+  widthWithoutScroll: any;
   viewportSize: { width: number; height: number; };
   $media: any;
   sideNavOpened: boolean;
@@ -62,6 +62,11 @@ export class AppComponent implements AfterViewInit {
 
   handleSideNavToggle($event: boolean) {
     this.sideNavOpened = $event;
+  }
+  contentScroll(event) {
+    this.lee.contentScroll.change(
+      document.getElementsByTagName('mat-sidenav-content')[0].scrollTop
+    );
   }
 
 }
