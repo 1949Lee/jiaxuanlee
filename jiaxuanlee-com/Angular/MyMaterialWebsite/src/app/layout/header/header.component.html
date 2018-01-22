@@ -7,7 +7,7 @@
   <div class="menu fill-remaining-space">
 
     <div *ngFor="let item of app.header.items; let i=index" 
-    class="menu-button-wrapper"
+     class="menu-button-wrapper"
      [ngClass]="{'active': item.active,'focus':item.focus}">
       <div class="menu-sub-show-wrapper" (click)="item.focus = false;" [ngStyle]="{'width': viewport.width + 'px','height':viewport.height + 'px'}"></div>
       <button routerLinkActive="active"
