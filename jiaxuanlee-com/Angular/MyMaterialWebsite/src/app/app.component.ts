@@ -31,7 +31,7 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     private logger: LoggerService,
-    @Inject(appConfig) private app,
+    @Inject(appConfig) public app,
     private media: ObservableMedia,
     private lee: LeeService
   ) {
