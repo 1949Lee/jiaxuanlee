@@ -81,17 +81,16 @@ export class AppConfig implements myAppConfig {
                 {
                     id: 'index', text: dict[this.lang].header.items['1'],
                     active:true,
-                    subItems: [
-                        { text: dict[this.lang].header.items['11'] },
-                        { text: dict[this.lang].header.items['12'] }
-                    ]
+                    path:'index',
+                    subItems:null
                 },
                 {
                     id: 'movies', text: dict[this.lang].header.items['2'],
                     active:false,
+                    
                     subItems: [
-                        { text: dict[this.lang].header.items['21'] },
-                        { text: dict[this.lang].header.items['22'] }
+                        { text: dict[this.lang].header.items['21'],path:'movies1'},
+                        { text: dict[this.lang].header.items['22'],path:'movies2' }
                     ]
                 },
                 {

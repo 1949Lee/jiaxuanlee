@@ -3,6 +3,7 @@ import { Router, ActivationStart, ActivationEnd } from '@angular/router';
 import { LoggerService } from '../../services/logger.service';
 import { appConfig } from '../../app.config';
 import { LeeService } from '../../services/lee.service';
+import  * as _  from 'lodash';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,10 @@ import { LeeService } from '../../services/lee.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+ 
   @Output() sideNavToggle: EventEmitter<boolean> = new EventEmitter();
   public viewport: { [key: string]: any };
+  // activeRoutePath: string;
 
 
   constructor(
@@ -24,14 +27,24 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe((e: any) => {
       if (e instanceof ActivationStart) {
         this.logger.log(e.snapshot.routeConfig)();
-        if (e.snapshot.routeConfig.path == "index") {
-          // this.logger.log('导航首页开始')();
-        }
+        // this.activeRoutePath = e.snapshot.routeConfig.path;
+        this.app.header.items = this.app.header.items.map((item) => {
+          if(item.path == e.snapshot.routeConfig.path){
+            item.active = true;
+          }
+          else{
+            if(_.filter(item.subItems,(subItem) => { return subItem.path == e.snapshot.routeConfig.path}).length != 0){
+              item.active = true;
+            }
+            else{
+              item.active = false;
+            }
+          }
+          return item;
+        });
       }
       else if (e instanceof ActivationEnd) {
-        if (e.snapshot.routeConfig.path == "index") {
-          // this.logger.log('导航首页结束')();
-        }
+
       }
     })
     this.viewport = this.lee.viewport.ViewportSize();

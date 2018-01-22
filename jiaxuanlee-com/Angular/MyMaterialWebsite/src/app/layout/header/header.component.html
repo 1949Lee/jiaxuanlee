@@ -10,7 +10,10 @@
     class="menu-button-wrapper"
      [ngClass]="{'active': item.active,'focus':item.focus}">
       <div class="menu-sub-show-wrapper" (click)="item.focus = false;" [ngStyle]="{'width': viewport.width + 'px','height':viewport.height + 'px'}"></div>
-      <button class="menu-button" mat-button (click)="menuButtonClick(i)">
+      <button routerLinkActive="active"
+       class="menu-button" mat-button 
+       (click)="menuButtonClick(i)"
+       >
         {{item.text}}
       </button>
       <div class="submenu" 
