@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
-import { Router, ActivationStart, ActivationEnd } from '@angular/router';
+import { Router, ActivationStart, ActivationEnd,ActivatedRoute } from '@angular/router';
 import { LoggerService } from '../../services/logger.service';
 import { appConfig } from '../../app.config';
 import { LeeService } from '../../services/lee.service';
@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 })
 export class HeaderComponent implements OnInit {
   public isTop: boolean;
+  private currentPath;
 
   @Output() sideNavToggle: EventEmitter<boolean> = new EventEmitter();
   public viewport: { [key: string]: any };
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private activeRoute:ActivatedRoute,
     private logger: LoggerService,
     @Inject(appConfig) public app,
     private lee: LeeService
@@ -28,7 +30,7 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe((e: any) => {
       if (e instanceof ActivationStart) {
         this.logger.log(e.snapshot.routeConfig)();
-        // this.activeRoutePath = e.snapshot.routeConfig.path;
+        this.currentPath = e.snapshot.routeConfig.path;
         if (e.snapshot.routeConfig.path == 'index') {
           if(
             document.getElementsByTagName('mat-sidenav-content')[0].scrollTop <
@@ -61,12 +63,13 @@ export class HeaderComponent implements OnInit {
     })
     this.viewport = this.lee.viewport.ViewportSize();
     this.lee.contentScroll.scroll$.debounceTime(150).subscribe((scrollTop) => {
-      // this.logger.log(scrollTop)();
-      if(scrollTop >= 64){
-        this.isTop = false;
-      }
-      else{
-        this.isTop = true;
+      if(this.currentPath== 'index'){
+        if(scrollTop >= 64){
+          this.isTop = false;
+        }
+        else{
+          this.isTop = true;
+        }
       }
     });
   }
@@ -87,6 +90,7 @@ export class HeaderComponent implements OnInit {
         if (item.path) {
           item.active = true;
           item.focus = false;
+          this.router.navigate([`/${item.path}`]);
         }
         else {
           item.active = false;

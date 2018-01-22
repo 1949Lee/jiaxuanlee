@@ -9,7 +9,10 @@
   
   <mat-sidenav-content class="lee-main-content" (scroll)="contentScroll($event)">
     <app-header class="fixed" (sideNavToggle)="snav.toggle()" [ngStyle]="{'width': container.clientWidth + 'px'}"></app-header>
-    <div #container class="fluid-container" [ngStyle]="{'min-height':viewportSize.height - app.footer.height+'px'}">
+    <div #container class="fluid-container" [ngStyle]="{
+      'min-height':viewportSize.height - app.footer.height+'px',
+      'margin-top':isMarginTop? app.footer.height+'px' : '0px'}"
+    >
       <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>

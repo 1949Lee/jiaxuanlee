@@ -6,6 +6,8 @@ import { BreakpointObserver } from '@angular/cdk/layout/';
 import { LeeService } from './services/lee.service';
 import { Observable } from 'rxjs';
 import { AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Router, ActivationStart, ActivationEnd } from '@angular/router';
+import { MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR } from '@angular/material';
 
 enableProdMode();
 
@@ -21,6 +23,7 @@ export class AppComponent implements AfterViewInit {
   sideNavOpened: boolean;
   title = 'app';
   mobileQuery: MediaQueryList;
+  isMarginTop: boolean = false;
 
 
   fillerNav = Array(50).fill(0).map((_, i) => `Nav Item ${i + 1}`);
@@ -33,6 +36,7 @@ export class AppComponent implements AfterViewInit {
     private logger: LoggerService,
     @Inject(appConfig) public app,
     private media: ObservableMedia,
+    private router: Router,
     private lee: LeeService
   ) {
     // this.media.subscribe((mediaChange: MediaChange) => {
@@ -42,6 +46,21 @@ export class AppComponent implements AfterViewInit {
     this.lee.viewport.viewport$.subscribe((view) => {
       this.viewportSize = view;
     });
+    this.router.events.subscribe((e: any) => {
+      if (e instanceof ActivationStart) {
+        this.logger.log(e.snapshot.routeConfig)();
+        // this.activeRoutePath = e.snapshot.routeConfig.path;
+        if (e.snapshot.routeConfig.path == 'index') {
+          this.isMarginTop = false;
+        }
+        else {
+          this.isMarginTop = true;
+        }
+      }
+      else if (e instanceof ActivationEnd) {
+
+      }
+    })
   }
   ngOnInit() {
     Observable.fromEvent(window, 'resize')
