@@ -63,8 +63,14 @@ export class HeaderComponent implements OnInit {
   menuButtonClick(i){
     this.app.header.items = this.app.header.items.map((item,index) =>{
       if(index == i){
-        item.active = true;
-        item.focus = true;
+        if(item.path){
+          item.active = true;
+          item.focus = false;
+        }
+        else{
+          item.active = false;
+          item.focus = true;
+        }
       }
       else{
         item.active = false;
