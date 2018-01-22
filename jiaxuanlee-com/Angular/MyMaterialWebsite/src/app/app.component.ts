@@ -41,7 +41,7 @@ export class AppComponent implements AfterViewInit {
     this.viewportSize = this.lee.viewport.ViewportSize();
     this.lee.viewport.viewport$.subscribe((view) => {
       this.viewportSize = view;
-    })
+    });
   }
   ngOnInit() {
     Observable.fromEvent(window, 'resize')
