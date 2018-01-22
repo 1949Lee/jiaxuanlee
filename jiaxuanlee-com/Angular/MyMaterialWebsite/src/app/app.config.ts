@@ -78,7 +78,7 @@ export class AppConfig implements myAppConfig{
         ]
     };
     constructor(){
-        console.log(`app 配置`);
+
     }
     
     changeLang(l:string){
