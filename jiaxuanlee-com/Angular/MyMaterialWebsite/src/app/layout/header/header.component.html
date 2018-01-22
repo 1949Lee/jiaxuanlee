@@ -6,14 +6,23 @@
   <h1 class="lee-app-name">镜中之人</h1>
   <div class="menu fill-remaining-space">
 
-    <div class="menu-button-wrapper">
-      <div class="menu-sub-show-wrapper"></div>
-      <button class="menu-button" mat-button>
-        首页
+    <div *ngFor="let item of app.header.items; let i=index" 
+    class="menu-button-wrapper"
+     [ngClass]="{'active': item.active,'focus':item.focus}">
+      <div class="menu-sub-show-wrapper" (click)="item.focus = false;" [ngStyle]="{'width': viewport.width + 'px','height':viewport.height + 'px'}"></div>
+      <button class="menu-button" mat-button (click)="menuButtonClick(i)">
+        {{item.text}}
       </button>
-
+      <div class="submenu" 
+      [ngClass]="{'focus': item.focus}"  
+      *ngIf="item.subItems != null">
+        <div *ngFor="let subItem of item.subItems; let sub_i=index" class="submenu-button-wrapper">
+          <button class="submenu-button" mat-button (click)="submenuButtonClick(i,sub_i)">
+            {{subItem.text}}
+          </button>
+        </div>
+      </div>
     </div>
-
 
     <!-- 当按钮多的时候显示 -->
     <!-- <button mat-icon-button [matMenuTriggerFor]="elseMenu">

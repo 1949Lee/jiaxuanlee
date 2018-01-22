@@ -19,13 +19,45 @@ mat-toolbar .logo {
   margin-left: 1em;
   position: relative;
 }
+.menu .menu-button-wrapper.active{
+  background: #48218a;
+  // box-shadow: black 0px 0px 10px;
+}
+
 .menu .menu-button-wrapper .menu-sub-show-wrapper{
-  position: absolute;
-  z-index: 105;
-  background-color: rgba($color: #000000, $alpha: .4);
+  position: fixed;
+  z-index: 103;
+  background-color: transparent;
+  left: 0;
+  display: none;
+}
+.menu .menu-button-wrapper.focus .menu-sub-show-wrapper{
+  display: block;
 }
 
 .menu .menu-button-wrapper .menu-button {
-  font-size: 20px;
+  font:500 20px/32px Roboto, "Helvetica Neue", sans-serif;
   height: 100%;
 }
+
+.menu>.menu-button-wrapper .submenu{
+  display: none;
+  background: #48218a;
+  border-bottom-right-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  box-shadow: 5px 10px 10px 2px rgba(0, 0, 0, .3);
+  // 0 7px 34px 16px rgba(0, 0, 0, .12);
+  position: absolute;
+  z-index:104;
+}
+
+.menu>.menu-button-wrapper.focus .submenu{
+  display: block;
+}
+
+.menu>.menu-button-wrapper .submenu button{
+  font:500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 2em;
+}
+
