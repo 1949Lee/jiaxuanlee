@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
     private logger: LoggerService,
     @Inject(appConfig) public app,
     private lee: LeeService
-  ) {
+   ) {
     this.logger.log(this.app.header)();
     this.router.events.subscribe((e: any) => {
       if (e instanceof ActivationStart) {
@@ -97,16 +97,13 @@ export class HeaderComponent implements OnInit {
           item.focus = true;
         }
       }
-      // else{
-      //   item.active = false;
-      //   item.focus = false;
-      // }
       return item;
     })
   }
 
-  submenuButtonClick(i) {
-
+  submenuButtonClick(i,sub_i) {
+    this.router.navigate([`/${this.app.header.items[i].subItems[sub_i].path}`]);
+    this.app.header.items[i].focus = false;
   }
 
 }
