@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class LeeService {
   viewport: ViewPort;
-  contentScroll:ContentScroll;
+  contentScroll: ContentScroll;
 
 
   constructor(
@@ -15,38 +15,38 @@ export class LeeService {
     private logger: LoggerService
   ) {
     // this.logger.log('我的服务已启动')(); 
-    this.viewport = new ViewPort(app,logger);
-    this.contentScroll = new ContentScroll(app,logger);
+    this.viewport = new ViewPort(app, logger);
+    this.contentScroll = new ContentScroll(app, logger);
   }
 
 
-  
+
 }
 
 
-class ViewPort{
-  
+class ViewPort {
+
 
   viewport: Subject<any> = new Subject<any>();
-  viewport$: any =  this.viewport.asObservable();
+  viewport$: any = this.viewport.asObservable();
 
   constructor(
     @Inject(appConfig) private app,
     private logger: LoggerService
-  ){
-    
+  ) {
+
   }
 
-  changeViewportSize(){
+  changeViewportSize() {
     this.viewport.next(this.ViewportSize());
   }
-  
-  ViewportSize(viewport?:any) {
+
+  ViewportSize(viewport?: any) {
     let temp;
-    if(viewport){
+    if (viewport) {
       temp = viewport;
     }
-    else{
+    else {
       temp = {
         width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
         height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
@@ -63,11 +63,11 @@ class ContentScroll {
   constructor(
     @Inject(appConfig) private app,
     private logger: LoggerService
-  ){
-    
+  ) {
+
   }
 
-  change(scrollTop){
+  change(scrollTop) {
     this.scroll.next(scrollTop);
   }
 }
