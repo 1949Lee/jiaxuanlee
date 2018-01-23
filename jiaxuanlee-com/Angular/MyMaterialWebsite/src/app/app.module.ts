@@ -17,6 +17,7 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LeeService } from './services/lee.service';
 import { AppRoutingModule } from './app-routing.module';
+import { HtmlPipe } from './pipe/html.pipe';
 
 @NgModule({
   declarations: [

@@ -10,6 +10,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 export const loadSvgResources = (ir: MatIconRegistry, ds: DomSanitizer) => {
   const imgDir = 'assets/img';
   const appDir = `${imgDir}/app`;
+  const techDir = `${imgDir}/tech`;
   ir.addSvgIcon('logo', ds.bypassSecurityTrustResourceUrl(`${appDir}/logo.svg`));
   ir.addSvgIcon('ICP', ds.bypassSecurityTrustResourceUrl(`${appDir}/ICP.svg`));
+  ir.addSvgIcon('React', ds.bypassSecurityTrustResourceUrl(`${techDir}/react.svg`));
 };

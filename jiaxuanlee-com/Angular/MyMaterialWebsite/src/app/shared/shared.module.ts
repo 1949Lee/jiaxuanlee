@@ -10,6 +10,7 @@ import {RouterModule} from '@angular/router';
     CommonModule,
     MyMaterialModuleModule,
     RouterModule,
+    
   ],
   exports:[
     CommonModule,
@@ -18,6 +19,6 @@ import {RouterModule} from '@angular/router';
     PageNotFoundComponent,
     RouterModule,
   ],
-  declarations: [MimNgComponentCarouselComponent,PageNotFoundComponent]
+  declarations: [MimNgComponentCarouselComponent,PageNotFoundComponent,]
 })
 export class SharedModule { }
