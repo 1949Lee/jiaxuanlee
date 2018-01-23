@@ -1,4 +1,5 @@
-<div class="slide-wrapper" [ngStyle]="{'height': wrapperHeight}" (mouseover)="pausedAnimation()" (mouseout)="resumeAnimation()">
+<!-- <div class="slide-wrapper" [ngStyle]="{'height': wrapperHeight}" (mouseover)="pausedAnimation()" (mouseout)="resumeAnimation()"> -->
+<div class="slide-wrapper" [ngStyle]="{'height': wrapperHeight}">
   <ul class="slide-box">
     <li class="slide animated" [ngClass]="{active: slide.active}" 
     *ngFor="let slide of carouselOption.slides;let i = index"
