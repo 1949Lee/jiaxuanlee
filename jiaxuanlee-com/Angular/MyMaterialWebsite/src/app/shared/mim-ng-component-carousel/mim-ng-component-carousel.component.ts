@@ -13,6 +13,9 @@ import { LeeService } from '../../services/lee.service';
 })
 export class MimNgComponentCarouselComponent implements OnInit {
 
+  public imgWidth: string;
+  public imgHeight: string;
+
   animationTimer: any;//当前轮播图的定时器
   viewportSize: { height: number; width: number; };//当前可视窗口的大小，根据视口大小实时调整
 
@@ -31,7 +34,11 @@ export class MimNgComponentCarouselComponent implements OnInit {
     private media: ObservableMedia,
     private lee: LeeService
   ) {
-
+    this.setImgSize(this.lee.viewport.ViewportSize());
+    this.lee.viewport.viewport$.subscribe((viewport) => {
+      this.setImgSize(viewport);
+    });
+    this.logger.log(this.imgWidth)();
   }
 
   ngOnInit() {
@@ -52,14 +59,14 @@ export class MimNgComponentCarouselComponent implements OnInit {
     this.pauseSlide();
   }
 
-  startSlide(){
+  startSlide() {
     this.navButtonAnimationPlayed = "running";
-    this.animationTimer = setInterval(() => { 
+    this.animationTimer = setInterval(() => {
       this.changeSlide("+");
     }, 6000);
   }
 
-  pauseSlide(){
+  pauseSlide() {
     clearInterval(this.animationTimer);
     this.navButtonAnimationPlayed = "paused";
   }
@@ -106,12 +113,20 @@ export class MimNgComponentCarouselComponent implements OnInit {
     this.viewportSize = viewport;
   }
 
-  pausedAnimation(){
+  pausedAnimation() {
     this.pauseSlide();
   }
 
-  resumeAnimation(){
+  resumeAnimation() {
     this.startSlide();
   }
 
+  setImgSize(viewport: any) {
+    //根据视窗的长宽，计算出图片的宽高。
+    let heightRatio = viewport.height / this.app.carousel.imgResolution.height;
+    let widthRatio = viewport.width / this.app.carousel.imgResolution.width;
+    let ratio = heightRatio > widthRatio ? heightRatio : widthRatio;
+    this.imgHeight = ratio * this.app.carousel.imgResolution.height + 'px';
+    this.imgWidth = ratio * this.app.carousel.imgResolution.width + 'px';
+  }
 }

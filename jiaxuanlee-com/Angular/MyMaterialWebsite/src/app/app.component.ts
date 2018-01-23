@@ -39,9 +39,9 @@ export class AppComponent implements AfterViewInit {
     private router: Router,
     private lee: LeeService
   ) {
-    // this.media.subscribe((mediaChange: MediaChange) => {
-    //    this.logger.log(this.lee.ViewportSize())();
-    // });
+    this.media.subscribe((mediaChange: MediaChange) => {
+       this.logger.log(mediaChange)();
+    });
     this.viewportSize = this.lee.viewport.ViewportSize();
     this.lee.viewport.viewport$.subscribe((view) => {
       this.viewportSize = view;

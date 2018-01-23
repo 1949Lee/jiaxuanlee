@@ -4,10 +4,16 @@
     <li class="slide animated" [ngClass]="{active: slide.active}" 
     *ngFor="let slide of carouselOption.slides;let i = index"
     >
-      <img class [src]="slide.imgURL">
+      <img 
+        class [src]="slide.imgURL"       
+        [width]="app.carousel.imgResolution.width" 
+        [height]="app.carousel.imgResolution.height"
+        [ngStyle]="{'width': imgWidth,'height':imgHeight}"
+      >
     </li>
     <li class="background-slide">
-      <img src="./assets/img/carousel/slide1.jpg" [ngStyle]="{'height.px':viewportSize.height}">
+      <img src="./assets/img/carousel/slide1.jpg" 
+      [ngStyle]="{'height.px':viewportSize.height}">
     </li>
   </ul>
   <div class="nav-button left-button-wrapper" (click)="prev()">

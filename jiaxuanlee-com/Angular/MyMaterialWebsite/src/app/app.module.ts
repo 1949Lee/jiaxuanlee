@@ -28,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     SharedModule,
     LayoutModule,
-    FlexLayoutModule,
+    // FlexLayoutModule,
     CoreModule,
     HttpClientModule,
     AppRoutingModule,

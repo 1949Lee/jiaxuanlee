@@ -64,7 +64,7 @@ export class AppConfig implements myAppConfig {
             md: `(min-width: 768px) and (max-width: 991.99px) and (orientation: portrait), (min-width: 768px) and (max-width: 991.99px) and (orientation: landscape)`,
             lg: `(min-width: 992px) and (max-width: 1199.99px) and (orientation: portrait), (min-width: 992px) and (max-width: 1199.99px) and (orientation: landscape)`,
             xl: `(min-width: 1200px) and (orientation: portrait), (min-width: 1200px) and (orientation: landscape)`,
-        }
+        }//实际使用的见layout/bootstrap-break-points/bootstrap-break-points.moudule.ts中的配置
     };
     footer = {
         height: 72
