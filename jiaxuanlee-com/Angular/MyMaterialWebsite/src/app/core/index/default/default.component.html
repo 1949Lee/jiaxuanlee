@@ -16,68 +16,17 @@
      [ngClass]="{'active': quote.active}"
     >
         <div class="header">
-            <div class="author">{{quote.author}}</div>
+            <div class="author">
+                {{quote.author[0]}} |
+                {{quote.author[1]}}
+            </div>
             <div class="honor">{{quote.honor}}</div>
         </div>
         <div class="quote-logo">
             <i class="fas fa-quote-left"></i>
         </div>
         <div class="quote">
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
-            <div class="quote-en">{{quote.en + quote.en}}</div>
+            <div class="quote-en">{{quote.en}}</div>
             <div class="quote-cn">{{quote.cn}}</div>
         </div>
     </div>

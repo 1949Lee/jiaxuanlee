@@ -46,21 +46,21 @@ const quote = [
     {
         en:`Bad programmers worry about the code. Good programmers worry about data structures and their relationships.`,
         cn:`坏的程序员担心代码， 好的程序员担心数据结构及其关系。`,
-        author:`Linus Torvalds | 林纳斯·托瓦兹`,
+        author:[`Linus Torvalds`,`林纳斯·托瓦兹`],
         honor:`Linux、Git之父`,
         active:true,
     },
     {
         en:`Talk is cheap. Show me the code.`,
         cn:`空谈是不值钱的。给我看你的代码就好。`,
-        author:`Linus Torvalds | 林纳斯·托瓦兹`,
+        author:[`Linus Torvalds`,`林纳斯·托瓦兹`],
         honor:`Linux、Git之父`,
         active:false,
     },
     {
         en:`Really, I’m not out to destroy Microsoft. That will just be a completely unintentional side effect.`,
         cn:`真的，我没打算要摧毁微软。这种结果将会是完全无意中产生的副作用。`,
-        author:`Linus Torvalds | 林纳斯·托瓦兹`,
+        author:[`Linus Torvalds`,`林纳斯·托瓦兹`],
         honor:`Linux、Git之父`,
         active:false,
     }
