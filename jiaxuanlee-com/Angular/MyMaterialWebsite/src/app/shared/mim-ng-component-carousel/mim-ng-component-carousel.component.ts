@@ -38,7 +38,6 @@ export class MimNgComponentCarouselComponent implements OnInit {
     this.lee.viewport.viewport$.subscribe((viewport) => {
       this.setImgSize(viewport);
     });
-    this.logger.log(this.imgWidth)();
   }
 
   ngOnInit() {

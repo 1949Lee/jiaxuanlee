@@ -1,0 +1,78 @@
+.quote-icons {
+  font-size: 2em;
+}
+
+.quote-wrapper {
+  background: transparent;
+  position: relative;
+}
+
+.quote-wrapper:after {
+    content:' ';
+}
+
+.quote-wrapper .quote-every {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
+    bottom: 0px;
+}
+
+.quote-wrapper .quote-every.active {
+    opacity: 1;
+}
+
+
+.quote-wrapper .quote-every .header{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote-wrapper .quote-every .header .author{
+    font-size: 2em;
+}
+
+.quote-wrapper .quote-every .header .honor{
+    color:rgba($color: #a0a6ab, $alpha: 1.0);
+    font-weight:bold;
+    font-size:1em;
+}
+
+.quote-wrapper .quote-every .quote-logo{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+
+.quote-wrapper .quote-every .quote{
+    flex:5 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border-radius: 3%;
+    box-shadow:0 0 20px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+}
+
+.quote-wrapper .quote-every .quote .quote-en{
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.quote-wrapper .quote-every .quote .quote-cn{
+    word-wrap: break-word;
+    text-align: center;
+}

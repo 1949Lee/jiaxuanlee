@@ -48,7 +48,7 @@ export class AppComponent implements AfterViewInit {
     });
     this.router.events.subscribe((e: any) => {
       if (e instanceof ActivationStart) {
-        this.logger.log(e.snapshot.routeConfig)();
+        // this.logger.log(e.snapshot.routeConfig)();
         // this.activeRoutePath = e.snapshot.routeConfig.path;
         if (e.snapshot.routeConfig.path == 'index') {
           this.isMarginTop = false;

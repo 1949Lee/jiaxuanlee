@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
     this.logger.log(this.app.header)();
     this.router.events.subscribe((e: any) => {
       if (e instanceof ActivationStart) {
-        this.logger.log(e.snapshot.routeConfig)();
+        // this.logger.log(e.snapshot.routeConfig)();
         this.currentPath = e.snapshot.routeConfig.path;
         if (e.snapshot.routeConfig.path == 'index') {
           if(
@@ -78,6 +78,7 @@ export class HeaderComponent implements OnInit {
     this.lee.viewport.viewport$.subscribe((vp) => {
       this.viewport = vp;
     })
+    // this.app.changeLang("en");
   }
 
   doSideNavToggle() {

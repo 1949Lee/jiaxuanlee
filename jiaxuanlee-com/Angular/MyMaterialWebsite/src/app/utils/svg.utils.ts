@@ -14,4 +14,6 @@ export const loadSvgResources = (ir: MatIconRegistry, ds: DomSanitizer) => {
   ir.addSvgIcon('logo', ds.bypassSecurityTrustResourceUrl(`${appDir}/logo.svg`));
   ir.addSvgIcon('ICP', ds.bypassSecurityTrustResourceUrl(`${appDir}/ICP.svg`));
   ir.addSvgIcon('React', ds.bypassSecurityTrustResourceUrl(`${techDir}/react.svg`));
-};
+  // ir.addSvgIcon('React', ds.);
+  // ir.registerFontClassAlias('fa','fa');
+}

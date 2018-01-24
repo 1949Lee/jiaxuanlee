@@ -63,7 +63,7 @@ $nav-button-size:60px; //导航按钮的大小
   position: relative;
   z-index: 2;
   background: none;
-  font-family: FontAwesome;
+  // font-family: FontAwesome;
   font-weight: 100;
   cursor: pointer;
   min-width: 70px;
@@ -76,7 +76,7 @@ $nav-button-size:60px; //导航按钮的大小
   justify-content: center;
 }
 
-.nav-button i {
+.nav-button .icons {
   position: absolute;
   z-index: 2;
   font-size: 50px;
@@ -138,8 +138,9 @@ $nav-button-size:60px; //导航按钮的大小
   animation: hideNav 1s;
 }
 
-.left-button-wrapper i {
+.left-button-wrapper .icons {
   margin-left: -6%;
+  margin-top:14%;
 }
 
 .right-button-wrapper {
@@ -149,8 +150,9 @@ $nav-button-size:60px; //导航按钮的大小
   visibility: hidden;
 }
 
-.right-button-wrapper i {
+.right-button-wrapper .icons {
   margin-left: 6%;
+  margin-top:14%;
 }
 
 @keyframes showNav {

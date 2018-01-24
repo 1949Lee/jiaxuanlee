@@ -1,5 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { appConfig } from '../../../app.config';
+import { LeeService } from '../../../services/lee.service';
+import * as _ from "lodash";
+import { LoggerService } from '../../../services/logger.service';
 
 @Component({
   selector: 'app-default',
@@ -7,15 +10,19 @@ import { appConfig } from '../../../app.config';
   styleUrls: ['./default.component.scss']
 })
 export class DefaultComponent implements OnInit {
+  viewport: any;
 
-  fillerContent = Array(50).fill(0).map(() =>
-      `Lorem <br> <b>ipsum</b> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
-
-  constructor(@Inject(appConfig) public app) { }
+  constructor(
+    @Inject(appConfig) public app,
+    private lee: LeeService,
+    private logger:LoggerService
+  ) {
+    this.viewport = this.lee.viewport.ViewportSize();
+    this.lee.viewport.viewport$.subscribe((vp) =>{
+      this.logger.log(vp)();
+      this.viewport = vp;
+    });
+  }
 
   ngOnInit() {
 
