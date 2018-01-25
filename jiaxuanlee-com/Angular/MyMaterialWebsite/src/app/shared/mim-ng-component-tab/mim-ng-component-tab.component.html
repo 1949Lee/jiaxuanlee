@@ -6,7 +6,15 @@
       <p class="lee-font-center" [innerHTML]="app.indexTab.subTitle"></p>
       <!-- <div class="c-line-center c-theme-bg"></div> -->
     </div>
-    <div class="lee-content" *ngFor="let item of app.indexTab.tab; let i=index">
+    <div class="lee-content">
+      <div class="lee-tab-nav-wrapper">
+        <div 
+          class="lee-tab-nav-button"
+          *ngFor="let tab of app.indexTab.tab; let i=index"
+          [innerHTML]="tab.id">
+        </div>
+      </div>
+      <div class="lee-tab-des"></div>
     </div>
   </div>
 </div>
