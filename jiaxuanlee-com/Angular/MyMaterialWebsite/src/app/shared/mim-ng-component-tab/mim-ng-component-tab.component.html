@@ -1,0 +1,12 @@
+<div class="lee-tab-box lee-bg-img-center">
+  <div class="container">
+    <div class="lee-content-title lee-margin-top-2em">
+      <h3 class="lee-font-34 lee-font-center lee-font-bold" [innerHTML]="app.indexTab.title">
+      </h3>
+      <p class="lee-font-center" [innerHTML]="app.indexTab.subTitle"></p>
+      <!-- <div class="c-line-center c-theme-bg"></div> -->
+    </div>
+    <div class="lee-content" *ngFor="let item of app.indexTab.tab; let i=index">
+    </div>
+  </div>
+</div>

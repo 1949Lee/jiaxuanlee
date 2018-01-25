@@ -4,6 +4,7 @@ import { MyMaterialModuleModule } from './my-material-module/my-material-module.
 import { MimNgComponentCarouselComponent } from './mim-ng-component-carousel/mim-ng-component-carousel.component';
 import { PageNotFoundComponent } from './utils/page-not-found/page-not-found.component';
 import {RouterModule} from '@angular/router';
+import { MimNgComponentTabComponent } from './mim-ng-component-tab/mim-ng-component-tab.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {RouterModule} from '@angular/router';
     MimNgComponentCarouselComponent,
     PageNotFoundComponent,
     RouterModule,
+    MimNgComponentTabComponent,
   ],
-  declarations: [MimNgComponentCarouselComponent,PageNotFoundComponent,]
+  declarations: [MimNgComponentCarouselComponent,PageNotFoundComponent, MimNgComponentTabComponent,]
 })
 export class SharedModule { }

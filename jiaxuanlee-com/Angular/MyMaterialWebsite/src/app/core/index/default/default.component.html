@@ -7,9 +7,8 @@
 </button> -->
 
 <div 
- class="quote-wrapper"
- [ngStyle]="{'min-height':viewport.height - app.header.height + 'px' }"
->
+    class="quote-wrapper"
+    [ngStyle]="{'min-height':viewport.height - app.header.height + 'px' }">
     <div 
      class="quote-every"
      *ngFor="let quote of app.quote; let i=index"
@@ -17,8 +16,9 @@
     >
         <div class="header">
             <div class="author">
-                {{quote.author[0]}} |
-                {{quote.author[1]}}
+                <span class="en">{{quote.author[0]}}</span> 
+                <!-- <span>|</span> -->
+                <span class="cn">{{quote.author[1]}}</span>
             </div>
             <div class="honor">{{quote.honor}}</div>
         </div>
@@ -31,3 +31,9 @@
         </div>
     </div>
 </div>
+<!-- <div class="row lee-row"
+    [ngStyle]="{'min-height':viewport.height - app.header.height + 'px' }"> -->
+    <app-mim-ng-component-tab class="row lee-row"
+    [ngStyle]="{'min-height':viewport.height - app.header.height + 'px' }"></app-mim-ng-component-tab>
+    <!-- <div class="lee-col col-lg-12"></div> -->
+<!-- </div> -->
