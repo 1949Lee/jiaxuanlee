@@ -96,3 +96,7 @@ button {
 @for $i from 1 through 5 {
   .lee-margin-top-#{$i}em { margin-top: #{$i}em; }
 }
+
+.lee-flex-box{
+  display: flex;
+}
