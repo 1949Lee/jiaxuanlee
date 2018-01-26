@@ -13,7 +13,7 @@
           class="lee-tab-nav-button"
           *ngFor="let tab of app.indexTab.tab; let i=index"
           [ngClass]="{'active': tab.active}">
-          <button mat-button 
+          <button mat-button (click)="changeTab(i)" 
             class="nav-button"><span [innerHTML]="tab.id"></span></button>
         </div>
       </div>

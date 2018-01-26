@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { appConfig } from '../../app.config';
 import { LoggerService } from '../../services/logger.service';
 import { LeeService } from '../../services/lee.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-mim-ng-component-tab',
@@ -25,6 +26,18 @@ export class MimNgComponentTabComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  changeTab(next:any){
+    this.app.indexTab.tab = _.map(this.app.indexTab.tab,(tab:{[key:string]:any},index)=>{
+      if(index == next){
+        tab.active = true;
+      }
+      else{
+        tab.active = false;
+      }
+      return tab
+    });
   }
 
 }
