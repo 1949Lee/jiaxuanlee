@@ -10,12 +10,18 @@ import { LeeService } from '../../services/lee.service';
 })
 export class MimNgComponentTabComponent implements OnInit {
 
+  viewport: any;
+
   constructor(
     @Inject(appConfig) public app,
     private logger: LoggerService,
     private lee: LeeService
   ) {
     this.logger.log(this.app.indexTab)();
+    this.viewport = this.lee.viewport.ViewportSize();
+    this.lee.viewport.viewport$.subscribe((vp)=>{
+      this.viewport = vp;
+    });
   }
 
   ngOnInit() {

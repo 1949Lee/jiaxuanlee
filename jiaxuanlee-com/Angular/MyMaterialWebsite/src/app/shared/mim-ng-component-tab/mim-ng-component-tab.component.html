@@ -6,7 +6,8 @@
       <p class="lee-font-center" [innerHTML]="app.indexTab.subTitle"></p>
       <!-- <div class="c-line-center c-theme-bg"></div> -->
     </div>
-    <div class="lee-content">
+    <div class="lee-content"
+      [ngStyle]="{'grid-template-rows': 'minmax('+(viewport.height - app.header.height)+'px,auto)'}">
       <div class="lee-tab-nav-wrapper">
         <div 
           class="lee-tab-nav-button"
@@ -22,6 +23,7 @@
           *ngFor="let tab of app.indexTab.tab; let i=index"
           [ngClass]="{'active': tab.active}"
           [innerHTML]="tab.text">
+          <div></div>
         </div>
       </div>
     </div>
