@@ -57,10 +57,10 @@ const dict = {
                 {
                     id: "Python",
                     title: `python`,
-                    subTitle:`Ruby on Rails 最火的那几年，有人问Python 之父吉多·范罗苏姆怎么看，他说：”Python 不需要杀手级应用，因为如果是这样的话，Python 在其它方面的作用就被忽略了。” Python 在网络爬虫、数据分析、AI、机器学习、Web开发、金融、运维、测试等多个领域都有不俗的表现，从来没有哪一种语言可以同时在这么多领域扎根。<br>
+                    subTitle:`Lets you work quickly and integrate systems more effectively`,
+                    text: `Ruby on Rails 最火的那几年，有人问Python 之父吉多·范罗苏姆怎么看，他说：”Python 不需要杀手级应用，因为如果是这样的话，Python 在其它方面的作用就被忽略了。” Python 在网络爬虫、数据分析、AI、机器学习、Web开发、金融、运维、测试等多个领域都有不俗的表现，从来没有哪一种语言可以同时在这么多领域扎根。<br>
                     Google为使用Python创建了大量的指南和教程。至少在开发者的领域，google持续贡献了大量文档和支持工具，并一直在为python免费做广告。<br>
                     无论如何，这对初学者来说是一种很好的语言，现在很多年轻的开发者都开始学习Python。而即便在这种情况下，有经验的开发人员也没有被忽视，因为Python总能带给你很多能做的事。`,
-                    text: ``,
                 },
             ],
         }
@@ -214,6 +214,7 @@ export class AppConfig implements myAppConfig {
             tab: [
                 {
                     id: "Angular",
+                    active:true,
                     title: dict[this.lang].indexTab.tab[0].title,
                     subTitle:dict[this.lang].indexTab.tab[0].subTitle,
                     text: dict[this.lang].indexTab.tab[0].text,
@@ -222,6 +223,7 @@ export class AppConfig implements myAppConfig {
                 },
                 {
                     id: "React",
+                    active:false,
                     title: dict[this.lang].indexTab.tab[1].title,
                     subTitle:dict[this.lang].indexTab.tab[1].subTitle,
                     text: dict[this.lang].indexTab.tab[1].text,
@@ -230,6 +232,7 @@ export class AppConfig implements myAppConfig {
                 },
                 {
                     id: "Vue.js",
+                    active:false,
                     title: dict[this.lang].indexTab.tab[2].title,
                     subTitle:dict[this.lang].indexTab.tab[2].subTitle,
                     text: dict[this.lang].indexTab.tab[2].text,
@@ -238,6 +241,7 @@ export class AppConfig implements myAppConfig {
                 },
                 {
                     id: "Python",
+                    active:false,
                     title: dict[this.lang].indexTab.tab[3].title,
                     subTitle:dict[this.lang].indexTab.tab[3].subTitle,
                     text: dict[this.lang].indexTab.tab[3].text,

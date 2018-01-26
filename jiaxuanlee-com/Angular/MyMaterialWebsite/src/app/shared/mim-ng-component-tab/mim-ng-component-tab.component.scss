@@ -4,14 +4,45 @@
   min-height: 100%;
 }
 
+.lee-main-container{
+  min-height: 100%;
+}
+
 .lee-content {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  grid-template-rows: minmax(300px,auto);
   flex: 1 1 auto;
 }
 
 .lee-content .lee-tab-nav-wrapper{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    min-height: 100%;
+    padding-left:1.5em;
+    padding-right:1.5em;
+    padding-top:2em;
 }
+
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button:not(:first-child) {
+  margin-top:1.5em;
+}
+
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button .nav-button{
+  font-size: 1.5em;
+  font-weight: 500px;
+  width: 100%;
+  text-align: start;
+}
+
+.lee-content .lee-tab-des-wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.lee-content .lee-tab-des-wrapper .lee-tab-des{
+  text-align: justify;
+}
+

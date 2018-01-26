@@ -1,5 +1,5 @@
 <div class="lee-tab-box lee-bg-img-center">
-  <div class="container lee-flex-box">
+  <div class="container lee-flex-box-col lee-main-container">
     <div class="lee-content-title lee-margin-top-2em">
       <h3 class="lee-font-34 lee-font-center lee-font-bold" [innerHTML]="app.indexTab.title">
       </h3>
@@ -11,10 +11,19 @@
         <div 
           class="lee-tab-nav-button"
           *ngFor="let tab of app.indexTab.tab; let i=index"
-          [innerHTML]="tab.id">
+          [ngClass]="{'active': tab.active}">
+          <button mat-button 
+            class="nav-button"><span [innerHTML]="tab.id"></span></button>
         </div>
       </div>
-      <div class="lee-tab-des"></div>
+      <div class="lee-tab-des-wrapper">
+        <div 
+          class="lee-tab-des"
+          *ngFor="let tab of app.indexTab.tab; let i=index"
+          [ngClass]="{'active': tab.active}"
+          [innerHTML]="tab.text">
+        </div>
+      </div>
     </div>
   </div>
 </div>
