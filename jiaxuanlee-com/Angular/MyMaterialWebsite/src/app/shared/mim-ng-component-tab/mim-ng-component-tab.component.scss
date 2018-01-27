@@ -4,8 +4,10 @@
   min-height: 100%;
 }
 
-.lee-main-container{
+.lee-main-container {
   min-height: 100%;
+  padding: 0;
+  width: 90%;
 }
 
 .lee-content {
@@ -14,41 +16,50 @@
   flex: 1 1 auto;
 }
 
-.lee-content .lee-tab-nav-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 100%;
-    padding-left:1.5em;
-    padding-right:1.5em;
-    padding-top:2em;
+.lee-content .lee-tab-nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 2em;
 }
 
 .lee-content .lee-tab-nav-wrapper .lee-tab-nav-button:not(:first-child) {
-  margin-top:1.5em;
+  margin-top: 1.5em;
 }
 
-.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button .nav-button{
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button .nav-button {
   font-size: 1.5em;
   font-weight: 500px;
   width: 100%;
   text-align: start;
 }
 
-.lee-content .lee-tab-des-wrapper{
+.lee-content .lee-tab-des-wrapper {
   min-height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.lee-content .lee-tab-des-wrapper .lee-tab-des{
+.lee-content .lee-tab-des-wrapper .lee-tab-des {
   display: none;
   text-align: justify;
+  min-height: 100%;
 }
 
-
-.lee-content .lee-tab-des-wrapper .lee-tab-des.active{
-  display: grid;
+.lee-content .lee-tab-des-wrapper .lee-tab-des .des-img {
+  // position: absolute;
+  // width:100%;
 }
 
+.lee-content .lee-tab-des-wrapper .lee-tab-des .des-img img {
+  width: 20vw;
+  height: 20vw;
+}
+
+.lee-content .lee-tab-des-wrapper .lee-tab-des.active {
+  display: flex;
+}

@@ -71,6 +71,12 @@ button {
   background-size: cover;
 }
 
+.lee-bg-img-contain-center {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 .lee-row {
   margin-left: 0px;
   margin-right: 0px;
@@ -95,6 +101,7 @@ button {
 
 @for $i from 1 through 5 {
   .lee-margin-top-#{$i}em { margin-top: #{$i}em; }
+  .lee-css-border-radius-#{$i}% {border-radius: $i * 1% ;}
 }
 
 .lee-flex-box{
