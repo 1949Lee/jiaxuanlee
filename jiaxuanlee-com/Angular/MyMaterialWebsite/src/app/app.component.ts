@@ -39,6 +39,8 @@ export class AppComponent implements AfterViewInit {
     private router: Router,
     private lee: LeeService
   ) {
+
+    // this.app.changeLang('en');
     this.media.subscribe((mediaChange: MediaChange) => {
        this.logger.log(mediaChange)();
     });

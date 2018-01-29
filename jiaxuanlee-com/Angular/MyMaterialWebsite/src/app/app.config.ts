@@ -15,6 +15,9 @@ const $asssets = `./assets/`;
 const $asssetsImg = `./assets/img/`;
 const dict = {
     cn: {
+        app:{
+            title:'镜中之人'
+        },
         header: {
             items: {
                 '1': "首页",
@@ -29,6 +32,7 @@ const dict = {
         indexTab: {
             title: `最火的技术，最新的开始`,
             subTitle: `移动开发的热度逐渐退去，但对于程序员来说，人工智能时代已经来临。`,
+            textFooter:`了解更多`,
             tab: [
                 {
                     id: "Angular",
@@ -66,6 +70,9 @@ const dict = {
         }
     },
     en: {
+        app:{
+            title:'Man in The Mirror'
+        },
         header: {
             items: {
                 '1': "Home",
@@ -78,8 +85,9 @@ const dict = {
             }
         },
         indexTab: {
-            title: ``,
-            subTitle: ``,
+            title: `The top tech, the new beginning`,
+            subTitle: `The popularity of mobile development receded, but for programmers, the AI era has come.`,
+            textFooter:`Learn More`,
             tab: [
                 {
                     id: "Angular",
@@ -146,6 +154,9 @@ const quote = [
 export class AppConfig implements myAppConfig {
     lang = "cn";
     isDev = true;
+    app = {
+        title:dict[this.lang].app.title
+    }
     assets = {
         assets:`./assets`,
         asssetsImg:`${$asssets}img`,
@@ -179,11 +190,12 @@ export class AppConfig implements myAppConfig {
     quote = quote;
     indexTab: any;
     constructor() {
-        this.header = this.resetheader();
-        this.indexTab = this.resetindexTab();
+        this.header = this.resetHeader();
+        this.indexTab = this.resetIndexTab();
+        this.app = this.resetApp();
     }
 
-    resetheader() {
+    resetHeader() {
         return {
             isDragable: false,
             height: 64,
@@ -212,14 +224,22 @@ export class AppConfig implements myAppConfig {
         };
     }
 
-    resetindexTab() {
+    resetApp() {
+        return {
+            title:dict[this.lang].app.title
+        };
+    }
+
+    resetIndexTab() {
         return {
             title: dict[this.lang].indexTab.title,
             subTitle: dict[this.lang].indexTab.subTitle,
+            textFooter:dict[this.lang].indexTab.textFooter,
             tab: [
                 {
                     id: "Angular",
                     class:'Angular',
+                    url:`https://angular.io/`,
                     active:true,
                     title: dict[this.lang].indexTab.tab[0].title,
                     subTitle:dict[this.lang].indexTab.tab[0].subTitle,
@@ -230,6 +250,7 @@ export class AppConfig implements myAppConfig {
                 {
                     id: "React",
                     class:'React',
+                    url:`https://reactjs.org/`,
                     active:false,
                     title: dict[this.lang].indexTab.tab[1].title,
                     subTitle:dict[this.lang].indexTab.tab[1].subTitle,
@@ -240,6 +261,7 @@ export class AppConfig implements myAppConfig {
                 {
                     id: "Vue.js",
                     class:'Vuejs',
+                    url:`https://vuejs.org/`,
                     active:false,
                     title: dict[this.lang].indexTab.tab[2].title,
                     subTitle:dict[this.lang].indexTab.tab[2].subTitle,
@@ -250,6 +272,7 @@ export class AppConfig implements myAppConfig {
                 {
                     id: "Python",
                     class:'Python',
+                    url:`https://www.python.org/`,
                     active:false,
                     title: dict[this.lang].indexTab.tab[3].title,
                     subTitle:dict[this.lang].indexTab.tab[3].subTitle,
@@ -263,8 +286,9 @@ export class AppConfig implements myAppConfig {
 
     changeLang(l: string) {
         this.lang = l;
-        this.header = this.resetheader();
-        this.indexTab = this.resetindexTab();
+        this.header = this.resetHeader();
+        this.indexTab = this.resetIndexTab();
+        this.app = this.resetApp();
     }
 }
 export let AppConfigJSON = new AppConfig();

@@ -8,6 +8,10 @@ body {
   min-height: 100%;
 }
 
+a{
+  text-decoration: none;
+}
+
 .lee-primary {
   background-color: #673ab7;
   color: rgba(255, 255, 255, .87);
@@ -101,8 +105,30 @@ button {
 
 @for $i from 1 through 5 {
   .lee-margin-top-#{$i}em { margin-top: #{$i}em; }
-  .lee-css-border-radius-#{$i}% {border-radius: $i * 1% ;}
+  .lee-margin-bottom-#{$i}em { margin-bottom: #{$i}em; }
+  .lee-padding-right-#{$i}em { padding-right: #{$i}em; }
+  .lee-css-border-radius-#{$i} {border-radius: $i * 2px ;}
+  .lee-font-weight-#{$i} {font-weight:$i * 100;}
 }
+
+.lee-layer{
+  position: absolute;
+  z-index: 0;
+}
+.lee-black-bg{
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+.lee-white{
+  background-color:white; 
+}
+
+@for $i from 1 through 9 {
+  .lee-opacity-#{$i} { opacity: 0.1 * $i; }
+}
+
 
 .lee-flex-box{
   display: flex;

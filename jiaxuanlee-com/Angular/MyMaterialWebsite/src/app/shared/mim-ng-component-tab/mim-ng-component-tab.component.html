@@ -1,38 +1,45 @@
 <div class="lee-tab-box lee-bg-img-center">
-  <div class="container lee-flex-box-col lee-main-container">
-    <div class="lee-content-title lee-margin-top-2em">
-      <h3 class="lee-font-34 lee-font-center lee-font-bold" [innerHTML]="app.indexTab.title">
-      </h3>
-      <p class="lee-font-center" [innerHTML]="app.indexTab.subTitle"></p>
-      <!-- <div class="c-line-center c-theme-bg"></div> -->
-    </div>
-    <div class="lee-content"
-      >
-      <div class="lee-tab-nav-wrapper">
-        <div 
-          class="lee-tab-nav-button"
-          *ngFor="let tab of app.indexTab.tab; let i=index"
-          [ngClass]="{'active': tab.active}">
-          <button mat-button (click)="changeTab(i)" 
-            class="nav-button"><span [innerHTML]="tab.id"></span></button>
-        </div>
+  <div class="lee-layer lee-black-bg lee-opacity-4 bg-layer"></div>
+  <div>
+    <div class="container lee-flex-box-col lee-main-container">
+      <div class="lee-content-title lee-margin-top-2em">
+        <h3 class="lee-font-34 lee-font-center lee-font-bold" [innerHTML]="app.indexTab.title">
+        </h3>
+        <p class="lee-font-center" [innerHTML]="app.indexTab.subTitle"></p>
+        <!-- <div class="c-line-center c-theme-bg"></div> -->
       </div>
-      <div class="lee-tab-des-wrapper">
-        <div 
-          class="lee-flex-box lee-css-border-radius-1% lee-bg-img-contain-center lee-tab-des"
-          *ngFor="let tab of app.indexTab.tab; let i=index"
-          
-          [ngClass]="{'active': tab.active}">
-          <div class="des-img">
-            <div [class]="'img lee-bg-img-contain-center '+ tab.class"  
-            [ngStyle]="{'background-image': 'url(\''+app.assets.asssetsImgTech+tab.img+'\')'}">
-            </div>
+      <div class="lee-content">
+        <div class="lee-tab-nav-wrapper">
+          <div class="lee-tab-nav-button" *ngFor="let tab of app.indexTab.tab; let i=index" [ngClass]="{'active': tab.active}">
+            <button mat-button (click)="changeTab(i)" class="nav-button">
+              <span [innerHTML]="tab.id"></span>
+            </button>
           </div>
-          <div class="text-box">
-            <div class="text-title"  [innerHTML]="tab.title"></div>
-            <div class="text-subTitle"  [innerHTML]="tab.subTitle"></div>
-            <div class="text-text"  [innerHTML]="tab.text"></div>
-            <div class="text-footer">das</div>
+        </div>
+        <div class="lee-white lee-tab-des-wrapper lee-css-border-radius-4">
+          <div class="lee-flex-box  lee-bg-img-contain-center lee-tab-des" *ngFor="let tab of app.indexTab.tab; let i=index" [ngClass]="{'active': tab.active}">
+            <div class="des-img">
+              <!-- <div [class]="'img lee-bg-img-contain-center '+ tab.class"  
+            [ngStyle]="{'background-image': 'url(\''+app.assets.asssetsImgTech+tab.img+'\')'}">
+            </div> -->
+              <!-- <mat-icon [class]="'img '+ tab.class"  
+            [svgIcon]="tab.class">
+            </mat-icon> -->
+              <img [class]="'img lee-bg-img-contain-center '+ tab.class" [src]="app.assets.asssetsImgTech+tab.img" [alt]="tab.id">
+            </div>
+            <div class="text-box">
+              <div class="text-title">
+                <h1>
+                  <i [class]="''+tab.logo"></i>
+                  <span [innerHTML]="tab.title"></span>
+                </h1>
+              </div>
+              <div class="text-subtitle" [innerHTML]="tab.subTitle"></div>
+              <div class="text-text lee-padding-right-2em" [innerHTML]="tab.text"></div>
+              <div class="lee-font-weight-4 lee-margin-top-3em lee-margin-bottom-3em text-footer">
+                <a [href]="tab.url" target="_blank">{{app.indexTab.textFooter}}</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

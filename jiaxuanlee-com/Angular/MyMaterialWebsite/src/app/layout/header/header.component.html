@@ -5,7 +5,7 @@
     <mat-icon>menu</mat-icon>
   </button>
   <mat-icon class="logo" svgIcon="logo"></mat-icon>
-  <h1 class="lee-app-name">镜中之人</h1>
+  <h1 class="lee-app-name">{{app.app.title}}</h1>
   <div class="menu fill-remaining-space">
 
     <div *ngFor="let item of app.header.items; let i=index" 

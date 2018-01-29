@@ -13,7 +13,10 @@ export const loadSvgResources = (ir: MatIconRegistry, ds: DomSanitizer) => {
   const techDir = `${imgDir}/tech`;
   ir.addSvgIcon('logo', ds.bypassSecurityTrustResourceUrl(`${appDir}/logo.svg`));
   ir.addSvgIcon('ICP', ds.bypassSecurityTrustResourceUrl(`${appDir}/ICP.svg`));
+  ir.addSvgIcon('Angular', ds.bypassSecurityTrustResourceUrl(`${techDir}/angular.svg`));
   ir.addSvgIcon('React', ds.bypassSecurityTrustResourceUrl(`${techDir}/react.svg`));
+  ir.addSvgIcon('Vuejs', ds.bypassSecurityTrustResourceUrl(`${techDir}/vuejs.svg`));
+  ir.addSvgIcon('Python', ds.bypassSecurityTrustResourceUrl(`${techDir}/python.svg`));
   // ir.addSvgIcon('React', ds.);
   // ir.registerFontClassAlias('fa','fa');
 }
