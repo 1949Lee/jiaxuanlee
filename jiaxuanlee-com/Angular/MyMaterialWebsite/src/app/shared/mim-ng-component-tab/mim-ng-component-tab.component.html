@@ -23,12 +23,16 @@
           *ngFor="let tab of app.indexTab.tab; let i=index"
           
           [ngClass]="{'active': tab.active}">
-          <div class="des-img"><img [src]="app.assets.asssetsImgTech+'/react.svg'" [alt]="tab.id"></div>
+          <div class="des-img">
+            <div [class]="'img lee-bg-img-contain-center '+ tab.class"  
+            [ngStyle]="{'background-image': 'url(\''+app.assets.asssetsImgTech+tab.img+'\')'}">
+            </div>
+          </div>
           <div class="text-box">
             <div class="text-title"  [innerHTML]="tab.title"></div>
             <div class="text-subTitle"  [innerHTML]="tab.subTitle"></div>
             <div class="text-text"  [innerHTML]="tab.text"></div>
-            <div class="text-footer"></div>
+            <div class="text-footer">das</div>
           </div>
         </div>
       </div>

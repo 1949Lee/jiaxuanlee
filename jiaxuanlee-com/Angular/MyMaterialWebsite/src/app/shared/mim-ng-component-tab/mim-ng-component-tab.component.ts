@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 export class MimNgComponentTabComponent implements OnInit {
 
   viewport: any;
+  test = "test2";
 
   constructor(
     @Inject(appConfig) public app,

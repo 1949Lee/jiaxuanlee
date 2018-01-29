@@ -53,11 +53,16 @@
 .lee-content .lee-tab-des-wrapper .lee-tab-des .des-img {
   // position: absolute;
   // width:100%;
+  // min-height: 100%;
 }
 
-.lee-content .lee-tab-des-wrapper .lee-tab-des .des-img img {
+.lee-content .lee-tab-des-wrapper .lee-tab-des .des-img .img {
   width: 20vw;
   height: 20vw;
+}
+
+.lee-content .lee-tab-des-wrapper .lee-tab-des .des-img .img.Python {
+  background-size: cover;
 }
 
 .lee-content .lee-tab-des-wrapper .lee-tab-des.active {
