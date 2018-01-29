@@ -34,6 +34,26 @@
   // padding-top: 2em;
 }
 
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button{
+  position: relative;
+}
+
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button.active:before{
+  content:' ';
+  width:4px;
+  height:100%;
+  background-color: #673ab7;
+  position: absolute;
+}
+
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button:hover:before{
+  content:' ';
+  width:4px;
+  height:100%;
+  background-color: #673ab7;
+  position: absolute;
+}
+
 .lee-content .lee-tab-nav-wrapper .lee-tab-nav-button:not(:first-child) {
   margin-top: 1.5em;
 }
