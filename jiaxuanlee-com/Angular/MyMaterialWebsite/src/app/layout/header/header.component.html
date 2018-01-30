@@ -16,14 +16,16 @@
        class="menu-button" mat-button 
        (click)="menuButtonClick(i)"
        >
-        {{item.text}}
+       <i [class]="'' + item.icon"></i>
+        <span>{{item.text}}</span>
       </button>
       <div class="submenu" 
       [ngClass]="{'focus': item.focus}"  
       *ngIf="item.subItems != null">
         <div *ngFor="let subItem of item.subItems; let sub_i=index" class="submenu-button-wrapper">
           <button class="submenu-button" mat-button (click)="submenuButtonClick(i,sub_i)">
-            {{subItem.text}}
+            <i [class]="'' + subItem.icon"></i>
+        <span>{{subItem.text}}</span>
           </button>
         </div>
       </div>

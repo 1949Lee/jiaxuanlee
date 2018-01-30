@@ -204,20 +204,22 @@ export class AppConfig implements myAppConfig {
                     id: 'index', text: dict[this.lang].header.items['1'],
                     active: true,
                     path: 'index',
+                    icon:'fas fa-home',
                     subItems: null
                 },
                 {
                     id: 'movies', text: dict[this.lang].header.items['2'],
                     active: false,
-
+                    icon:'fas fa-film',
                     subItems: [
-                        { text: dict[this.lang].header.items['21'], path: 'movies1' },
-                        { text: dict[this.lang].header.items['22'], path: 'movies2' }
+                        { text: dict[this.lang].header.items['21'],icon:'fas fa-newspaper', path: 'movies1' },
+                        { text: dict[this.lang].header.items['22'],icon:'fas fa-trophy', path: 'movies2' }
                     ]
                 },
                 {
                     id: 'form', text: dict[this.lang].header.items['3'],
                     active: false,
+                    icon:'fas fa-thumbs-up',
                     subItems: null
                 },
             ]
