@@ -4,11 +4,34 @@
   justify-content: center;
 }
 
-.lee-footer .lee-email-link{
-    color: black;
+.lee-footer .lee-email-link {
+  color: black;
 }
 
-.lee-footer .lee-ICP-icon{
+.lee-footer .lee-ICP-icon {
+  position: relative;
+  bottom: 0px;
+  vertical-align:top;
+}
+
+.lee-footer-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  flex: 1 1 auto;
+}
+
+.lee-footer-wrapper span {
+    text-align: center;
+}
+
+.lee-ICP{
     position: relative;
-    bottom: -7px;
+}
+
+.lee-footer-xl .lee-footer-wrapper,
+.lee-footer-lg .lee-footer-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
 }
