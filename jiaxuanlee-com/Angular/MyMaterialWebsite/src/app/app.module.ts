@@ -9,7 +9,6 @@ import { MyMaterialModuleModule } from './shared/my-material-module/my-material-
 import { LayoutModule } from './layout/layout.module';
 import { appConfig, AppConfigJSON } from './app.config';
 import { LoggerService } from './services/logger.service';
-import { FlexLayoutModule } from "@angular/flex-layout";
 import { MediaMatcher, BreakpointObserver } from '@angular/cdk/layout';
 import { MatIconRegistry } from '@angular/material';
 import { loadSvgResources } from './utils/svg.utils';

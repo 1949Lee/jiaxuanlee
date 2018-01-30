@@ -3,7 +3,6 @@ import { appConfig } from '../../app.config';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { findIndex, map } from 'lodash';
 import { LoggerService } from '../../services/logger.service';
-import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { LeeService } from '../../services/lee.service';
 
 @Component({
@@ -31,7 +30,6 @@ export class MimNgComponentCarouselComponent implements OnInit {
   constructor(
     @Inject(appConfig) private app,
     private logger: LoggerService,
-    private media: ObservableMedia,
     private lee: LeeService
   ) {
     this.setImgSize(this.lee.viewport.ViewportSize());

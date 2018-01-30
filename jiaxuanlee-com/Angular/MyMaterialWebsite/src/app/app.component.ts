@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, Inject, ViewChild, ElementRef, AfterViewInit, enableProdMode } from '@angular/core';
 import { LoggerService } from './services/logger.service';
 import { appConfig } from './app.config';
-import { MediaChange, ObservableMedia } from "@angular/flex-layout";
 import { BreakpointObserver } from '@angular/cdk/layout/';
 import { LeeService } from './services/lee.service';
 import { Observable } from 'rxjs';
@@ -35,15 +34,11 @@ export class AppComponent implements AfterViewInit {
   constructor(
     private logger: LoggerService,
     @Inject(appConfig) public app,
-    private media: ObservableMedia,
     private router: Router,
     private lee: LeeService
   ) {
 
     // this.app.changeLang('en');
-    this.media.subscribe((mediaChange: MediaChange) => {
-       this.logger.log(mediaChange)();
-    });
     this.viewportSize = this.lee.viewport.ViewportSize();
     this.lee.viewport.viewport$.subscribe((view) => {
       this.viewportSize = view;
