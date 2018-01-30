@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 export class LeeService {
   viewport: ViewPort;
   contentScroll: ContentScroll;
+  responsive:ResponsiveUI;
 
 
   constructor(
@@ -17,6 +18,7 @@ export class LeeService {
     // this.logger.log('我的服务已启动')(); 
     this.viewport = new ViewPort(app, logger);
     this.contentScroll = new ContentScroll(app, logger);
+    this.responsive = new ResponsiveUI(this.viewport);
   }
 
 
@@ -24,6 +26,7 @@ export class LeeService {
 }
 
 
+@Injectable()
 class ViewPort {
 
 
@@ -56,6 +59,7 @@ class ViewPort {
   }
 }
 
+@Injectable()
 class ContentScroll {
   scroll = new Subject<any>();
   scroll$ = this.scroll.asObservable();
@@ -69,5 +73,22 @@ class ContentScroll {
 
   change(scrollTop) {
     this.scroll.next(scrollTop);
+  }
+}
+
+@Injectable()
+class ResponsiveUI{
+
+  constructor(private media:ViewPort){
+   let xs = window.matchMedia(`(max-width: 575.99px) and (orientation: portrait), (max-width: 575.99px) and (orientation: landscape)`);
+   let sm = window.matchMedia(`(min-width: 576px) and (max-width: 767.99px) and (orientation: portrait), (min-width: 576px) and (max-width: 767.99px) and (orientation: landscape)`);
+   let md = window.matchMedia(`(min-width: 768px) and (max-width: 991.99px) and (orientation: portrait), (min-width: 768px) and (max-width: 991.99px) and (orientation: landscape)`);
+   let lg = window.matchMedia(`(min-width: 992px) and (max-width: 1199.99px) and (orientation: portrait), (min-width: 992px) and (max-width: 1199.99px) and (orientation: landscape)`);
+   let xl = window.matchMedia(`(min-width: 1200px) and (orientation: portrait), (min-width: 1200px) and (orientation: landscape)`);
+   console.log(xs,sm,md,lg,xl);
+  }
+
+  xsChange() {
+
   }
 }
