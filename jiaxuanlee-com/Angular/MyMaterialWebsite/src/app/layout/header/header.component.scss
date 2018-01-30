@@ -8,6 +8,17 @@ mat-toolbar .logo {
   z-index: 102;
 }
 
+.lee-header-lg .side-nav-menu,
+.lee-header-xl .side-nav-menu {
+  visibility: hidden;
+}
+
+.lee-header-xs .side-nav-menu,
+.lee-header-sm .side-nav-menu,
+.lee-header-md .side-nav-menu {
+  visibility: visible;
+}
+
 .menu {
   display: flex;
   justify-content: flex-start;
@@ -163,4 +174,15 @@ mat-toolbar.top {
   font-weight: bold;
   width: 100%;
   height: 2em;
+}
+
+.lee-header-lg .menu .menu-button-wrapper,
+.lee-header-xl .menu .menu-button-wrapper {
+  display: block;
+}
+
+.lee-header-xs .menu .menu-button-wrapper,
+.lee-header-sm .menu .menu-button-wrapper,
+.lee-header-md .menu .menu-button-wrapper{
+  display: none;
 }
