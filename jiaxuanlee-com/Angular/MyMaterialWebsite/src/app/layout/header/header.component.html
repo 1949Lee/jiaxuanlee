@@ -1,5 +1,12 @@
 <mat-toolbar class="lee-header mat-elevation-z18" color="primary"
-  [ngClass]="{'top': isTop}"
+  [ngClass]="{
+    'top': isTop,
+    'lee-header-xs':lee.responsive.all.xs.matches,
+    'lee-header-sm':lee.responsive.all.sm.matches,
+    'lee-header-md':lee.responsive.all.md.matches,
+    'lee-header-lg':lee.responsive.all.lg.matches,
+    'lee-header-xl':lee.responsive.all.xl.matches
+  }"
 >
   <button mat-icon-button (click)="doSideNavToggle()">
     <mat-icon>menu</mat-icon>

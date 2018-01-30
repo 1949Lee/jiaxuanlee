@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { appConfig } from '../app.config';
 import { LoggerService } from './logger.service';
 import { viewClassName } from '@angular/compiler';
-import { Subject } from 'rxjs';
+import { Subject,Observable } from 'rxjs';
 
 @Injectable()
 export class LeeService {
@@ -90,8 +90,13 @@ class ResponsiveUI {
   private md:any;
   private lg:any;
   private xl:any;
+  private xs$:any;
+  private sm$:any;
+  private md$:any;
+  private lg$:any;
+  private xl$:any;
   private curr:Media;
-  private all:any;
+  private all:{xs:Media;sm:Media;md:Media;lg:Media;xl:Media;};
 
   constructor(
     @Inject(appConfig) private app,
@@ -107,6 +112,38 @@ class ResponsiveUI {
     this.lg = window.matchMedia(this.app.breakpoints.lg);
     this.xl = window.matchMedia(this.app.breakpoints.xl);
     this.resetCurrent();
+    this.resetAll();
+    this.xs.addListener((mql)=>{
+    });
+    this.sm.addListener((mql)=>{
+    });
+    this.md.addListener((mql)=>{
+    });
+    this.lg.addListener((mql)=>{
+    });
+    this.xl.addListener((mql)=>{
+    });
+    this.xs$ = Observable.fromEvent(this.xs,'change');
+    this.xs$.subscribe((mql)=>{
+      this.xsChange(mql);
+    })
+    this.sm$ = Observable.fromEvent(this.sm,'change');
+    this.sm$.subscribe((mql)=>{
+      this.smChange(mql);
+    })
+    this.md$ = Observable.fromEvent(this.md,'change');
+    this.md$.subscribe((mql)=>{
+      this.mdChange(mql);
+    })
+    this.lg$ = Observable.fromEvent(this.lg,'change');
+    this.lg$.subscribe((mql)=>{
+      this.lgChange(mql);
+    })
+    this.xl$ = Observable.fromEvent(this.xl,'change');
+    this.xl$.subscribe((mql)=>{
+      this.xlChange(mql);
+    })
+    
     return this.curr;
   }
 
@@ -143,12 +180,64 @@ class ResponsiveUI {
     }
     return this.curr;
   }
+
+  resetAll(){
+    this.all = {
+      xs:{
+        type:'xs',
+        mediaQuery:this.app.breakpoints.xs,
+        matches:this.xs.matches
+      },
+      sm:{
+        type:'sm',
+        mediaQuery:this.app.breakpoints.sm,
+        matches:this.sm.matches
+      },
+      md:{
+        type:'md',
+        mediaQuery:this.app.breakpoints.md,
+        matches:this.md.matches
+      },
+      lg:{
+        type:'lg',
+        mediaQuery:this.app.breakpoints.lg,
+        matches:this.lg.matches
+      },
+      xl:{
+        type:'xl',
+        mediaQuery:this.app.breakpoints.xl,
+        matches:this.xl.matches
+      }
+    }
+    return this.all;
+  }
   
   CurrentMedia(){
     return this.resetCurrent();
   }
 
-  xsChange(){
-
+  AllMedia(){
+    this.resetAll();
   }
+
+  xsChange(mql:any){
+    this.all.xs.matches = mql.matches;
+  }
+
+  smChange(mql:any){
+    this.all.sm.matches = mql.matches;
+  }
+
+  mdChange(mql:any){
+    this.all.md.matches = mql.matches;
+  }
+
+  lgChange(mql:any){
+    this.all.lg.matches = mql.matches;
+  }
+
+  xlChange(mql:any){
+    this.all.xl.matches = mql.matches;
+  }
+
 }
