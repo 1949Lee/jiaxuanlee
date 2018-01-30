@@ -1,7 +1,15 @@
-<footer class='lee-footer lee-primary'>
+<footer class='lee-footer lee-primary' [ngClass]="{
+  'lee-footer-xs':lee.responsive.all.xs.matches,
+  'lee-footer-sm':lee.responsive.all.sm.matches,
+  'lee-footer-md':lee.responsive.all.md.matches,
+  'lee-footer-lg':lee.responsive.all.lg.matches,
+  'lee-footer-xl':lee.responsive.all.xl.matches
+  }">
   <div class="lee-footer-wrapper">
     <span class="lee-copyright">
       2017 &copy; Angular 5 &Angular Matreial by
+    </span>
+    <span class="lee-me">
       <a href="#" class="lee-email-link" matTooltip="通过邮箱联系我" [matTooltipPosition]="'above'">
         lijiaxuan0811@hotmail.com
       </a>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { LeeService } from '../../services/lee.service';
+import { appConfig } from '../../app.config';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public lee:LeeService,
+    @Inject(appConfig) public app
+  ) { }
 
   ngOnInit() {
   }
