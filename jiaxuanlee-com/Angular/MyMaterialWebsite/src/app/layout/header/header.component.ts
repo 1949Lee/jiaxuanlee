@@ -62,7 +62,8 @@ export class HeaderComponent implements OnInit {
       }
     })
     this.viewport = this.lee.viewport.ViewportSize();
-    this.lee.contentScroll.scroll$.debounceTime(150).subscribe((scrollTop) => {
+    // .debounceTime(150)
+    this.lee.contentScroll.scroll$.subscribe((scrollTop) => {
       if(this.currentPath== 'index'){
         if(scrollTop >= 64){
           this.isTop = false;
