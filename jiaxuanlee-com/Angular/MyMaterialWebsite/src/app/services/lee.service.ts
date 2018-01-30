@@ -83,6 +83,10 @@ class ResponsiveUI {
     @Inject(appConfig) private app,
     private logger: LoggerService,
     private media: ViewPort) {
+      this.currentMedia();
+  }
+
+  currentMedia(){
     let xs = window.matchMedia(`(max-width: 575.99px) and (orientation: portrait), (max-width: 575.99px) and (orientation: landscape)`);
     let sm = window.matchMedia(`(min-width: 576px) and (max-width: 767.99px) and (orientation: portrait), (min-width: 576px) and (max-width: 767.99px) and (orientation: landscape)`);
     let md = window.matchMedia(`(min-width: 768px) and (max-width: 991.99px) and (orientation: portrait), (min-width: 768px) and (max-width: 991.99px) and (orientation: landscape)`);
