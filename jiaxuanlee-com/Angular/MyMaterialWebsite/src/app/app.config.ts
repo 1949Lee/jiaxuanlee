@@ -220,8 +220,8 @@ export class AppConfig implements myAppConfig {
                     active: false,
                     icon: 'fas fa-film',
                     subItems: [
-                        { text: dict[this.lang].header.items['21'], icon: 'fas fa-newspaper', path: 'movies1' },
-                        { text: dict[this.lang].header.items['22'], icon: 'fas fa-trophy', path: 'movies2' }
+                        { text: dict[this.lang].header.items['21'], icon: 'fas fa-newspaper', path: 'movies/latest' },
+                        { text: dict[this.lang].header.items['22'], icon: 'fas fa-trophy', path: 'movies/top' }
                     ]
                 },
                 {
