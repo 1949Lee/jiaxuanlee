@@ -9,18 +9,31 @@
 
 .lee-main-container {
   min-height: 100%;
+  width: 90%;
   padding: 0;
 }
 
 .lee-content {
   display: grid;
-  width: 90%;
-  grid-template-columns: 1fr 3fr 3fr;
-  // grid-template-rows: 1fr;
+  width: 100%;
   flex: 1 1 auto;
 }
 
-.lee-tab-box .lee-content-title{
+.lee-tab-box-xl .lee-content,
+.lee-tab-box-lg .lee-content {
+  grid-template-columns: 1fr 3fr 3fr; // grid-template-rows: 1fr;
+}
+
+.lee-tab-box-md .lee-content,
+.lee-tab-box-sm .lee-content,
+.lee-tab-box-xs .lee-content {
+  grid-template-columns: 1fr; // grid-template-rows: 1fr;
+  align-self: center;
+  grid-row-gap: 2em;
+  margin-bottom: 2em;
+}
+
+.lee-tab-box .lee-content-title {
   z-index: 1;
 }
 
@@ -30,26 +43,25 @@
   justify-content: flex-start;
   min-height: 100%;
   padding-left: 1.5em;
-  padding-right: 1.5em;
-  // padding-top: 2em;
+  padding-right: 1.5em; // padding-top: 2em;
 }
 
-.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button{
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button {
   position: relative;
 }
 
-.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button.active:before{
-  content:' ';
-  width:4px;
-  height:100%;
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button.active:before {
+  content: ' ';
+  width: 4px;
+  height: 100%;
   background-color: #673ab7;
   position: absolute;
 }
 
-.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button:hover:before{
-  content:' ';
-  width:4px;
-  height:100%;
+.lee-content .lee-tab-nav-wrapper .lee-tab-nav-button:hover:before {
+  content: ' ';
+  width: 4px;
+  height: 100%;
   background-color: #673ab7;
   position: absolute;
 }
@@ -66,27 +78,40 @@
 }
 
 .lee-content .lee-tab-des-wrapper {
-  grid-column: 2 / span 2;
   min-height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 20px 5px rgba(69, 50, 99, 0.5);
-  color:#343a3d;
-  background-color: #ffffff 
+  color: #343a3d;
+  background-color: #ffffff
+}
+
+.lee-tab-box-xl .lee-content .lee-tab-des-wrapper,
+.lee-tab-box-lg .lee-content .lee-tab-des-wrapper {
+  grid-column: 2 / span 2;
 }
 
 .lee-content .lee-tab-des-wrapper .lee-tab-des {
   display: none;
-  text-align: justify;
-  // min-height: 100%;
+  text-align: justify; // min-height: 100%;
+}
+
+.lee-tab-box-xl .lee-content .lee-tab-des-wrapper .lee-tab-des,
+.lee-tab-box-lg .lee-content .lee-tab-des-wrapper .lee-tab-des {
   grid-template-columns: 1fr 4fr;
 }
 
-.lee-content .lee-tab-des-wrapper .lee-tab-des .des-img {
-  // position: absolute;
-  // width:100%;
-  // min-height: 100%;
+.lee-tab-box-md .lee-content .lee-tab-des-wrapper .lee-tab-des,
+.lee-tab-box-sm .lee-content .lee-tab-des-wrapper .lee-tab-des,
+.lee-tab-box-xs .lee-content .lee-tab-des-wrapper .lee-tab-des {
+  grid-template-columns: 1fr;
+}
+
+.lee-tab-box-xl .lee-content .lee-tab-des-wrapper .lee-tab-des .text-box,
+.lee-tab-box-lg .lee-content .lee-tab-des-wrapper .lee-tab-des .text-box {
+  align-content: flex-start;
+  align-items: flex-start;
 }
 
 .lee-content .lee-tab-des-wrapper .lee-tab-des .des-img .img {
@@ -94,22 +119,32 @@
   height: 200px;
 }
 
-.lee-content .lee-tab-des-wrapper .lee-tab-des .des-img .img.Python {
-
-}
+.lee-content .lee-tab-des-wrapper .lee-tab-des .des-img .img.Python {}
 
 .lee-content .lee-tab-des-wrapper .lee-tab-des.active {
-  display: flex;
+  display: grid;
 }
 
-.lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-subtitle{
+.lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-subtitle {
   color: #4b5255;
 }
 
-.lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-text{
+.lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-text {
   color: #7c8387;
 }
 
-.lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-footer{
+.lee-tab-box-xl .lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-text,
+.lee-tab-box-lg .lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-text {
+  padding-right: 2em;
+}
+
+.lee-tab-box-md .lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-text,
+.lee-tab-box-sm .lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-text,
+.lee-tab-box-xs .lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-text {
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+lee-padding-right-2em .lee-content .lee-tab-des-wrapper .lee-tab-des .text-box .text-footer {
   // font-weight: 400;
 }

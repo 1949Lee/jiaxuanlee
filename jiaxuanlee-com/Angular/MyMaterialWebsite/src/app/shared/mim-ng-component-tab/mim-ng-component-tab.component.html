@@ -1,7 +1,12 @@
-<div class="lee-tab-box lee-bg-img-center">
+<div class="lee-tab-box lee-bg-img-center" [ngClass]="{
+  'lee-tab-box-xs':lee.responsive.all.xs.matches,
+  'lee-tab-box-sm':lee.responsive.all.sm.matches,
+  'lee-tab-box-md':lee.responsive.all.md.matches,
+  'lee-tab-box-lg':lee.responsive.all.lg.matches,
+  'lee-tab-box-xl':lee.responsive.all.xl.matches}">
   <div class="lee-layer lee-black-bg lee-opacity-4 bg-layer"></div>
-  <div>
-    <div class="container lee-flex-box-col lee-main-container">
+  <div class="lee-flex-box-col lee-flex-box-center">
+    <div class="lee-flex-box-col lee-main-container">
       <div class="lee-content-title lee-margin-top-2em">
         <h3 class="lee-font-34 lee-font-center lee-font-bold" [innerHTML]="app.indexTab.title">
         </h3>
@@ -18,7 +23,7 @@
         </div>
         <div class="lee-white lee-tab-des-wrapper lee-css-border-radius-4">
           <div class="lee-flex-box  lee-bg-img-contain-center lee-tab-des" *ngFor="let tab of app.indexTab.tab; let i=index" [ngClass]="{'active': tab.active}">
-            <div class="des-img">
+            <div class="lee-flex-box lee-flex-box-center des-img">
               <!-- <div [class]="'img lee-bg-img-contain-center '+ tab.class"  
             [ngStyle]="{'background-image': 'url(\''+app.assets.asssetsImgTech+tab.img+'\')'}">
             </div> -->
@@ -27,7 +32,7 @@
             </mat-icon> -->
               <img [class]="'img lee-bg-img-contain-center '+ tab.class" [src]="app.assets.asssetsImgTech+tab.img" [alt]="tab.id">
             </div>
-            <div class="text-box">
+            <div class="lee-flex-box-col lee-flex-box-center text-box">
               <div class="text-title">
                 <h1>
                   <i [class]="''+tab.logo"></i>
@@ -35,7 +40,7 @@
                 </h1>
               </div>
               <div class="text-subtitle" [innerHTML]="tab.subTitle"></div>
-              <div class="text-text lee-padding-right-2em" [innerHTML]="tab.text"></div>
+              <div class="text-text" [innerHTML]="tab.text"></div>
               <div class="lee-font-weight-4 lee-margin-top-3em lee-margin-bottom-3em text-footer">
                 <a [href]="tab.url" target="_blank">{{app.indexTab.textFooter}}</a>
               </div>
