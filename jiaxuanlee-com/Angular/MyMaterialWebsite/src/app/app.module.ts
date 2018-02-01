@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LeeService } from './services/lee.service';
 import { AppRoutingModule } from './app-routing.module';
 import { Observable} from 'rxjs';
+import { MoviesService } from './services/movies.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { Observable} from 'rxjs';
     },
     MediaMatcher,
     BreakpointObserver,
-    LeeService
+    LeeService,
+    MoviesService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../../../services/movies.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-latest',
@@ -6,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./latest.component.scss']
 })
 export class LatestComponent implements OnInit {
+  latestList$: Observable<Object>;
+  
 
-  constructor() { }
+  constructor(
+    private movie:MoviesService,
+    private http:HttpClient
+   ) { 
+    this.latestList$ = this.movie.getLatest();
+  }
 
   ngOnInit() {
   }
