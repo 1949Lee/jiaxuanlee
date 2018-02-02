@@ -6,7 +6,7 @@ import { TopComponent } from './top/top.component';
 
 const routes: Routes = [
     {
-        path: 'movies', children: [
+        path: 'music', children: [
             { 
                 path:'',
                 redirectTo:'latest',
@@ -28,4 +28,4 @@ const routes: Routes = [
     imports: [CommonModule, RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class MoviesRoutingModule { }
+export class MusicRoutingModule { }

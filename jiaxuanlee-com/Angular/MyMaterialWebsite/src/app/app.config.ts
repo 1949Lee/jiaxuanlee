@@ -23,9 +23,9 @@ const dict = {
                 '1': "首页",
                 '11': "首页1",
                 '12': "首页2",
-                '2': "豆瓣电影",
-                '21': "最新电影",
-                '22': "电影排行",
+                '2': "网易音乐",
+                '21': "最新歌曲",
+                '22': "歌曲排行",
                 '3': "举例说明",
             }
         },
@@ -78,9 +78,9 @@ const dict = {
                 '1': "Home",
                 '11': "Home1",
                 '12': "Home2",
-                '2': "Movies",
-                '21': "Latest Movies",
-                '22': "Top Movies",
+                '2': "Music",
+                '21': "Latest Songs",
+                '22': "Top Songs",
                 '3': "For Example",
             }
         },
@@ -164,6 +164,7 @@ export class AppConfig implements myAppConfig {
         asssetsImgTech: `${$asssets}img/tech`,
     }
     serverURL = ``;
+    musicURL = `http://musicapi.leanapp.cn`;
     carousel = {
         slides: [
             { imgURL: `${$asssetsImg}carousel/slide1.jpg`, active: true },
@@ -216,12 +217,12 @@ export class AppConfig implements myAppConfig {
                     subItems: null
                 },
                 {
-                    id: 'movies', text: dict[this.lang].header.items['2'],
+                    id: 'music', text: dict[this.lang].header.items['2'],
                     active: false,
                     icon: 'fas fa-film',
                     subItems: [
-                        { text: dict[this.lang].header.items['21'], icon: 'fas fa-newspaper', path: 'movies/latest' },
-                        { text: dict[this.lang].header.items['22'], icon: 'fas fa-trophy', path: 'movies/top' }
+                        { text: dict[this.lang].header.items['21'], icon: 'fas fa-newspaper', path: 'music/latest' },
+                        { text: dict[this.lang].header.items['22'], icon: 'fas fa-trophy', path: 'music/top' }
                     ]
                 },
                 {

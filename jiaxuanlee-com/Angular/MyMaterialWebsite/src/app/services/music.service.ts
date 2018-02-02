@@ -3,15 +3,18 @@ import { appConfig } from '../app.config';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class MoviesService {
+export class MusicService {
+
+  private latestURL = '/top/album';
+  private topURL = '/top/album';
 
   constructor(
-    @Inject(appConfig) app,
+    @Inject(appConfig) private app,
     private http:HttpClient
   ) { }
 
   getLatest(){
-    return this.http.get('http://musicapi.leanapp.cn/top/list?idx=0');
+    return this.http.get(`${this.app.musicURL+this.latestURL}?offset=0&limit=30`);
   }
 
 }
