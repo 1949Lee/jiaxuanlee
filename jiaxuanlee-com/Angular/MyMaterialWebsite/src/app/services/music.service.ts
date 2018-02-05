@@ -6,15 +6,18 @@ import { HttpClient } from '@angular/common/http';
 export class MusicService {
 
   private latestURL = '/top/album';
-  private topURL = '/top/album';
+  private topURL = '/top/list?idx=6';
+  private limit;
 
   constructor(
     @Inject(appConfig) private app,
     private http:HttpClient
-  ) { }
+  ) {
+    this.limit = this.app.music.limit
+  }
 
   getLatest(){
-    return this.http.get(`${this.app.musicURL+this.latestURL}?offset=0&limit=30`);
+    return this.http.get(`${this.app.musicURL+this.latestURL}?offset=0&limit=${this.limit}`);
   }
 
 }

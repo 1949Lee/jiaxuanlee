@@ -1,0 +1,42 @@
+.lee-music-box>.lee-flex-box {
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.lee-music-box {
+  padding-bottom: 0;
+}
+
+// .lee-music-box>.lee-flex-box:after {
+//   content: " ";
+//   flex: auto;
+// }
+
+.lee-music-box .lee-flex-box li {
+  width: 20%;
+  height: 25em;
+  white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4fr 1fr 1fr;
+  overflow: hidden;
+  margin-bottom: 1.5em;
+  margin-right: 1em;
+  overflow: hidden;
+}
+
+.lee-music-box .lee-flex-box li .album-img {
+  display: block;
+  width: 100%;
+//   height: 100%;
+}
+
+.lee-music-box .lee-flex-box li .album-name {
+  justify-content: flex-start;
+}
+
+.lee-music-box .lee-flex-box li .album-artists {
+  justify-content: flex-start;
+  text-overflow: ellipsis;
+}

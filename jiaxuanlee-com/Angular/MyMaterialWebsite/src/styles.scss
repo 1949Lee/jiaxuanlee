@@ -144,3 +144,25 @@ button {
   align-content: center;
   align-items: center;
 }
+
+.lee-text-hide{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.lee-flex-fill-remain{
+  flex:auto;
+}
+
+
+
+.lee-ul-no-style{
+  list-style: none;
+  padding-left:0;
+}
+
+.lee-container-box{
+  margin:0 1.5em;
+  padding:1.5em 0;
+}

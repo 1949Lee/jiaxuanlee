@@ -198,6 +198,9 @@ export class AppConfig implements myAppConfig {
         'lg': '(min-width: 992px) and (max-width: 1199.99px) and (orientation: portrait), (min-width: 992px) and (max-width: 1199.99px) and (orientation: landscape)',
         'xl': '(min-width: 1200px) and (orientation: portrait), (min-width: 1200px) and (orientation: landscape)'
     };
+    music = {
+        limit:20
+    }
     constructor() {
         this.header = this.resetHeader();
         this.indexTab = this.resetIndexTab();

@@ -1,1 +1,25 @@
-{{latestList$|json}}
+<!-- {{latestList?.albums |json}} -->
+<!-- {{ '1517760000007' | date:'yyyy-MM-dd HH:mm:ss'}}-->
+<!-- {{ '100000.01' | currency:'JPY':'symbol'}}  -->
+
+<div class="lee-container-box lee-music-box" [ngClass]="{
+    'lee-music-box-xs':lee.responsive.all.xs.matches,
+    'lee-music-box-sm':lee.responsive.all.sm.matches,
+    'lee-music-box-md':lee.responsive.all.md.matches,
+    'lee-music-box-lg':lee.responsive.all.lg.matches,
+    'lee-music-box-xl':lee.responsive.all.xl.matches}">
+  <ul class="lee-flex-box lee-ul-no-style">
+    <li *ngFor="let album of latestList?.albums">
+      <img class="album-img" [src]="album.picUrl" alt="网易云音乐">
+      <div class="lee-flex-box lee-flex-box-center lee-text-hide album-name">
+        <span class="lee-text-hide" [innerHTML]="album.name"></span>
+      </div>
+      <div class="lee-flex-box lee-flex-box-center lee-text-hide album-artists">
+        <span class="lee-text-hide">
+          <span *ngFor="let artist of album?.artists" class="lee-text-hide"  [innerHTML]="artist.name"></span>
+        </span>
+      </div>
+    </li>
+    <!-- <li class="lee-flex-fill-remain"></li> -->
+  </ul>
+</div>

@@ -18,7 +18,11 @@ import { LeeService } from './services/lee.service';
 import { AppRoutingModule } from './app-routing.module';
 import { Observable} from 'rxjs';
 import { MusicService } from './services/music.service';
+import { registerLocaleData } from '@angular/common';
+// import localeZh from '@angular/common/locales/zh';
 
+
+// registerLocaleData(localeZh);
 @NgModule({
   declarations: [
     AppComponent,
