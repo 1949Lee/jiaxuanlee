@@ -18,7 +18,10 @@
         </div>
         <div class="lee-flex-box lee-flex-box-center lee-text-hide album-artists">
           <span class="lee-text-hide">
-            <span *ngFor="let artist of album?.artists" class="lee-text-hide" [innerHTML]="artist.name"></span>
+            <span *ngIf="album.artists.length == 1; else elseBlock" class="lee-text-hide album-artist" [innerHTML]="album.artists[0].name"></span>
+            <ng-template #elseBlock >
+                <span  *ngFor="let artist of album?.artists; let islast = last" class="lee-text-hide album-artist" [innerHTML]="islast?artist.name:artist.name + ' & '"></span>
+            </ng-template> 
           </span>
         </div>
       </div>

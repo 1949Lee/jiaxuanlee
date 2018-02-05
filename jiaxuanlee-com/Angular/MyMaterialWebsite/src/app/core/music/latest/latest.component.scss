@@ -45,5 +45,8 @@
 .lee-music-box .lee-flex-box li .album-artists {
   justify-content: flex-start;
   text-overflow: ellipsis;
+}
+
+.lee-music-box .lee-flex-box li .album-artists .album-artist{
   cursor: pointer;
 }
