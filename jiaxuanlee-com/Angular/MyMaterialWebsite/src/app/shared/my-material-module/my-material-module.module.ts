@@ -8,6 +8,8 @@ import {
   MatTooltipModule,
   MatIconRegistry,
   MatMenuModule,
+  MatSelectModule,
+  MatFormFieldModule
 } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { loadSvgResources } from '../../utils/svg.utils';
@@ -21,6 +23,8 @@ import { loadSvgResources } from '../../utils/svg.utils';
     MatListModule,
     MatTooltipModule,
     MatMenuModule,
+    MatSelectModule,
+    MatFormFieldModule,
   ],
   exports: [
     MatSidenavModule,
@@ -30,6 +34,8 @@ import { loadSvgResources } from '../../utils/svg.utils';
     MatListModule,
     MatTooltipModule,
     MatMenuModule,
+    MatSelectModule,
+    MatFormFieldModule,
   ],
   declarations: []
 })

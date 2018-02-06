@@ -8,6 +8,10 @@
   padding-bottom: 0;
 }
 
+.lee-music-box .music-page-sum {
+  width: 7em;
+}
+
 .lee-music-box>.lee-flex-box:after {
   content: " ";
   flex: auto;
@@ -17,7 +21,7 @@
   width: 20%;
 }
 
-.lee-music-box .lee-flex-box li .album-box{
+.lee-music-box .lee-flex-box li .album-box {
   white-space: nowrap;
   display: grid;
   grid-template-columns: 1fr;
@@ -25,7 +29,7 @@
   padding: 0.5em 1em;
 }
 
-.lee-music-box .lee-flex-box li .album-img-wrapper{
+.lee-music-box .lee-flex-box li .album-img-wrapper {
   display: block;
   width: 100%;
   overflow: hidden;
@@ -39,6 +43,10 @@
 
 .lee-music-box .lee-flex-box li .album-name {
   justify-content: flex-start;
+}
+
+.lee-music-box .lee-flex-box li .album-name .album-name-title {
+  justify-content: flex-start;
   cursor: pointer;
 }
 
@@ -47,6 +55,6 @@
   text-overflow: ellipsis;
 }
 
-.lee-music-box .lee-flex-box li .album-artists .album-artist{
+.lee-music-box .lee-flex-box li .album-artists .album-artist {
   cursor: pointer;
 }

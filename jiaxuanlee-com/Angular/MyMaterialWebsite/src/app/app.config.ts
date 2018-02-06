@@ -67,6 +67,15 @@ const dict = {
                     无论如何，这对初学者来说是一种很好的语言，现在很多年轻的开发者都开始学习Python。而即便在这种情况下，有经验的开发人员也没有忽视，因为Python总能带给你很多能做的事。`,
                 },
             ],
+        },
+        music:{
+            text:{
+                pageSum:'每页显示',
+                prevPage:'上一页',
+                nextPage:'下一页',
+                firstPage:'首页',
+                lastPage:'尾页',
+            }
         }
     },
     en: {
@@ -123,6 +132,15 @@ const dict = {
                     Anyway, this is a good language for beginners and many young developers are now learning Python. Even in this case, experienced developers are not overlooked, because Python always brings you a lot of things to do.`,
                 },
             ],
+        },
+        music:{
+            text:{
+                pageSum:'Each page show',
+                prevPage:'Previous Page',
+                nextPage:'Next Page',
+                firstPage:'First Page',
+                lastPage:'Last Page',
+            }
         }
     }
 }
@@ -199,12 +217,14 @@ export class AppConfig implements myAppConfig {
         'xl': '(min-width: 1200px) and (orientation: portrait), (min-width: 1200px) and (orientation: landscape)'
     };
     music = {
-        limit:20
+        limits:[10,20,30],
+        text:{}
     }
     constructor() {
         this.header = this.resetHeader();
         this.indexTab = this.resetIndexTab();
         this.app = this.resetApp();
+        this.music.text = this.resetMusicText();
     }
 
     resetHeader() {
@@ -298,11 +318,22 @@ export class AppConfig implements myAppConfig {
         };
     }
 
+    resetMusicText(){
+        return {
+            pageSum:dict[this.lang].music.text.pageSum,
+            nextPage:dict[this.lang].music.text.nextPage,
+            prevPage:dict[this.lang].music.text.prevPage,
+            firstPage:dict[this.lang].music.text.firstPage,
+            lastPage:dict[this.lang].music.text.lastPage
+        };
+    }
+
     changeLang(l: string) {
         this.lang = l;
         this.header = this.resetHeader();
         this.indexTab = this.resetIndexTab();
         this.app = this.resetApp();
+        this.music.text = this.resetMusicText();
     }
 }
 export let AppConfigJSON = new AppConfig();

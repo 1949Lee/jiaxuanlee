@@ -4,6 +4,14 @@
     'lee-music-box-md':lee.responsive.all.md.matches,
     'lee-music-box-lg':lee.responsive.all.lg.matches,
     'lee-music-box-xl':lee.responsive.all.xl.matches}">
+  <mat-form-field class="music-page-sum"  [floatLabel]="'auto'">
+    <mat-label>{{app.music.text.pageSum}}</mat-label>
+    <mat-select (selectionChange)="changPageSum($event.value)">
+      <mat-option *ngFor="let pageSum of app.music.limits" [value]="pageSum">
+        {{ pageSum }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <ul class="lee-flex-box lee-ul-no-style">
     <li *ngFor="let album of latestList?.albums">
       <div class="album-box">
@@ -11,17 +19,15 @@
           <img class="album-img" [src]="album.picUrl" alt="网易云音乐">
         </div>
         <div class="lee-flex-box lee-flex-box-center lee-text-hide album-name">
-          <span class="lee-flex-fill-remain lee-text-hide"
-           [innerHTML]="album.name"
-           [matTooltip]="album.name" [matTooltipPosition]="'above'"></span>
-          <span class="" [innerHTML]="album.publishTime | date:'yyyy-MM-dd'"></span>
+          <span class="lee-flex-fill-remain lee-text-hide album-name-title" [innerHTML]="album.name" [matTooltip]="album.name" [matTooltipPosition]="'above'"></span>
+          <span class="album-name-publish-date" [innerHTML]="album.publishTime | date:'yyyy-MM-dd'"></span>
         </div>
         <div class="lee-flex-box lee-flex-box-center lee-text-hide album-artists">
           <span class="lee-text-hide">
             <span *ngIf="album.artists.length == 1; else elseBlock" class="lee-text-hide album-artist" [innerHTML]="album.artists[0].name"></span>
-            <ng-template #elseBlock >
-                <span  *ngFor="let artist of album?.artists; let islast = last" class="lee-text-hide album-artist" [innerHTML]="islast?artist.name:artist.name + ' & '"></span>
-            </ng-template> 
+            <ng-template #elseBlock>
+              <span *ngFor="let artist of album?.artists; let islast = last" class="lee-text-hide album-artist" [innerHTML]="islast?artist.name:artist.name + ' & '"></span>
+            </ng-template>
           </span>
         </div>
       </div>
