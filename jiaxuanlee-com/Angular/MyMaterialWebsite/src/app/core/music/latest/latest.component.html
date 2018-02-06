@@ -32,6 +32,10 @@
         </div>
       </div>
     </li>
-    <!-- <li class="lee-flex-fill-remain"></li> -->
   </ul>
+  <app-mim-ng-component-paginator (change)="changPage($event)"></app-mim-ng-component-paginator>
+</div>
+<div *ngIf="loading" class="lee-fixed lee-layer lee-flex-box lee-flex-box-center">
+    <!-- <mat-spinner></mat-spinner> -->
+    加载中
 </div>

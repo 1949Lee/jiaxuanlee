@@ -9,7 +9,7 @@ import {
   MatIconRegistry,
   MatMenuModule,
   MatSelectModule,
-  MatFormFieldModule
+  MatFormFieldModule,
 } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { loadSvgResources } from '../../utils/svg.utils';

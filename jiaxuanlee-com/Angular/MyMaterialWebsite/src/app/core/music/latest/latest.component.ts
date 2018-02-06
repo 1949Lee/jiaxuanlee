@@ -14,8 +14,9 @@ import { appConfig } from '../../../app.config';
   styleUrls: ['./latest.component.scss']
 })
 export class LatestComponent implements OnInit {
-  latestList: LatstResult;
-
+  public latestList: LatstResult;
+  public loading:boolean;
+  // public pageIndex:number = 0;
 
   constructor(
     private movie: MusicService,
@@ -24,23 +25,30 @@ export class LatestComponent implements OnInit {
     private lee:LeeService,
     @Inject(appConfig) private app
   ) {
-    this.showList();
+    this.loading = true;
+    this.getList(0);
   }
 
   ngOnInit() {
   }
 
-  showList(){
-    this.movie.getLatest().subscribe((res: { [key: string]: any }) => {
+  getList(index){
+    this.movie.getLatest(index).subscribe((res: { [key: string]: any }) => {
       this.logger.log(res)();
       this.latestList = res as LatstResult;
+      this.loading = false;
     });
   }
 
   changPageSum(val){
     this.movie.limit = val;
     // this.logger.log(val)();
-    this.showList();
+    this.getList(0);
+  }
+
+  changPage(index){
+    this.loading = true;
+    this.getList(index);
   }
 
 }

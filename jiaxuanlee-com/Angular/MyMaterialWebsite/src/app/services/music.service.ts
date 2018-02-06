@@ -25,11 +25,12 @@ export class MusicService {
     this._limit = this.app.music.limits[1];
   }
 
-  getLatest(){
-    return this.http.get(`${this.app.musicURL+this.latestURL}?offset=0&limit=${this._limit}`).map((res: { [key: string]: any }) => {
+  getLatest(offest:number){
+    return this.http.get(`${this.app.musicURL+this.latestURL}?offset=${offest*this._limit}&limit=${this._limit}`).map((res: { [key: string]: any }) => {
       let End = new LatstResult();
-      End.albums = _.map(res.albums, (ablum: { [key: string]: any }) => {
+      End.albums = _.map(res.albums, (ablum: { [key: string]: any },index) => {
         let tem: { [key: string]: any } = {};
+        // tem.index = index;
         tem.name = ablum.name;
         tem.blurPicUrl = ablum.blurPicUrl;
         tem.picUrl = ablum.picUrl;

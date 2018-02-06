@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-mim-ng-component-paginator',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MimNgComponentPaginatorComponent implements OnInit {
 
+  @Output('change') changePageIndex:EventEmitter<number> = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  doChangePageIndex(index){
+    this.changePageIndex.emit(index);
+  }
 }

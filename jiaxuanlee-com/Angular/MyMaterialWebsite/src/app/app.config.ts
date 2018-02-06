@@ -217,8 +217,9 @@ export class AppConfig implements myAppConfig {
         'xl': '(min-width: 1200px) and (orientation: portrait), (min-width: 1200px) and (orientation: landscape)'
     };
     music = {
-        limits:[10,20,30],
-        text:{}
+        limits:[10,35,30],
+        text:{},
+        total:500
     }
     constructor() {
         this.header = this.resetHeader();
