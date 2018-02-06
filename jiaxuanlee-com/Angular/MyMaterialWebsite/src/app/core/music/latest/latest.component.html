@@ -6,7 +6,7 @@
     'lee-music-box-xl':lee.responsive.all.xl.matches}">
   <mat-form-field class="music-page-sum"  [floatLabel]="'auto'">
     <mat-label>{{app.music.text.pageSum}}</mat-label>
-    <mat-select (selectionChange)="changPageSum($event.value)">
+    <mat-select [value]="movie.limit" (selectionChange)="changPageSum($event.value)">
       <mat-option *ngFor="let pageSum of app.music.limits" [value]="pageSum">
         {{ pageSum }}
       </mat-option>

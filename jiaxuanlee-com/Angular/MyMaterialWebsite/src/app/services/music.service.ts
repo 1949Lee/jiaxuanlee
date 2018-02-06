@@ -14,6 +14,9 @@ export class MusicService {
   set limit(val){
     this._limit = val;
   }
+  get limit(){
+    return this._limit;
+  }
 
   constructor(
     @Inject(appConfig) private app,
