@@ -164,7 +164,7 @@ export class AppConfig implements myAppConfig {
         asssetsImgTech: `${$asssets}img/tech`,
     }
     serverURL = ``;
-    musicURL = `http://musicapi.leanapp.cn`;
+    musicURL = `http://localhost:3000`;
     carousel = {
         slides: [
             { imgURL: `${$asssetsImg}carousel/slide1.jpg`, active: true },
