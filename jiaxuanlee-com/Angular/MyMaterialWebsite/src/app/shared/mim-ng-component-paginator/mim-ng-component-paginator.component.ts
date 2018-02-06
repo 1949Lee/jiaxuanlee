@@ -32,7 +32,7 @@ export class MimNgComponentPaginatorComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.logger.log(changes)();
+    // this.logger.log(changes)();
     if (changes.length) {
       this.length = changes.length.currentValue;
       this.pageSum = Math.ceil(this.length / this.limit);
