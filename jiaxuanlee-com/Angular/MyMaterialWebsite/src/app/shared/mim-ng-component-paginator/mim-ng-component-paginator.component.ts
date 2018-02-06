@@ -1,4 +1,7 @@
-import { Component, OnInit,Output,EventEmitter} from '@angular/core';
+import { Component, OnInit,Output,Input,EventEmitter, Inject} from '@angular/core';
+import { LeeService } from '../../services/lee.service';
+import { LoggerService } from '../../services/logger.service';
+import { appConfig } from '../../app.config';
 
 @Component({
   selector: 'app-mim-ng-component-paginator',
@@ -7,9 +10,16 @@ import { Component, OnInit,Output,EventEmitter} from '@angular/core';
 })
 export class MimNgComponentPaginatorComponent implements OnInit {
 
+  @Input('startPage') startIndex:number = 0;
+  @Input('totalAmount') length:number = 0;
+  @Input('limit') limit:number = 0;
   @Output('change') changePageIndex:EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(
+    private lee:LeeService,
+    private logger:LoggerService,
+    @Inject(appConfig) public app
+  ) { }
 
   ngOnInit() {
   }

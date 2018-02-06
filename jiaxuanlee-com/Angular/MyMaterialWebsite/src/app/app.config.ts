@@ -217,15 +217,23 @@ export class AppConfig implements myAppConfig {
         'xl': '(min-width: 1200px) and (orientation: portrait), (min-width: 1200px) and (orientation: landscape)'
     };
     music = {
-        limits:[10,35,30],
+        limits:[10,20,30],
         text:{},
         total:500
-    }
+    };
+    paginator = {
+        text:{},
+        shownSum:5,
+        type:1,
+        showSkipTo:true
+    };
+
     constructor() {
         this.header = this.resetHeader();
         this.indexTab = this.resetIndexTab();
         this.app = this.resetApp();
         this.music.text = this.resetMusicText();
+        this.paginator.text = this.resetPaginator();
     }
 
     resetHeader() {
@@ -329,12 +337,22 @@ export class AppConfig implements myAppConfig {
         };
     }
 
+    resetPaginator(){
+        return {
+            nextPage:dict[this.lang].music.text.nextPage,
+            prevPage:dict[this.lang].music.text.prevPage,
+            firstPage:dict[this.lang].music.text.firstPage,
+            lastPage:dict[this.lang].music.text.lastPage
+        }
+    }
+
     changeLang(l: string) {
         this.lang = l;
         this.header = this.resetHeader();
         this.indexTab = this.resetIndexTab();
         this.app = this.resetApp();
         this.music.text = this.resetMusicText();
+        this.paginator.text = this.resetPaginator();
     }
 }
 export let AppConfigJSON = new AppConfig();

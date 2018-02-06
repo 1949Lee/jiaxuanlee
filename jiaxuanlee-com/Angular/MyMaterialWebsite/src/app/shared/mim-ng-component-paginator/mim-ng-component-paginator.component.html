@@ -1,4 +1,6 @@
-<p>
-  mim-ng-component-paginator works!
-</p>
-<button mat-button (click)="doChangePageIndex(1)"><span>下一页</span></button>
+<button mat-button (click)="doChangePageIndex(1)">
+  <span>{{app.paginator.prevPage}}</span>
+</button>
+<button mat-button (click)="doChangePageIndex(1)">
+  <span>{{app.paginator.nextPage}}</span>
+</button>
