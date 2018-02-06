@@ -33,7 +33,7 @@
       </div>
     </li>
   </ul>
-  <app-mim-ng-component-paginator (change)="changPage($event)"></app-mim-ng-component-paginator>
+  <app-mim-ng-component-paginator [hidden]="loading" [startPage]="pageIndex" [totalAmount]="latestList?.total" [limit]="movie.limit" (change)="changPage($event)"></app-mim-ng-component-paginator>
 </div>
 <div *ngIf="loading" class="lee-fixed lee-layer lee-flex-box lee-flex-box-center">
     <!-- <mat-spinner></mat-spinner> -->

@@ -1,6 +1,8 @@
-<button mat-button (click)="doChangePageIndex(1)">
-  <span>{{app.paginator.prevPage}}</span>
-</button>
-<button mat-button (click)="doChangePageIndex(1)">
-  <span>{{app.paginator.nextPage}}</span>
-</button>
+<div class="lee-flex-box lee-flex-box-center lee-margin-top-1em lee-margin-bottom-1em lee-paginator-box">
+  <button color="primary" mat-raised-button (click)="prev()">
+    <span>{{app.paginator.text.prevPage}}</span>
+  </button>
+  <button color="primary" mat-raised-button (click)="next()">
+    <span>{{app.paginator.text.nextPage}}</span>
+  </button>
+</div>

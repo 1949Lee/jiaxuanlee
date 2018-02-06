@@ -233,7 +233,7 @@ export class AppConfig implements myAppConfig {
         this.indexTab = this.resetIndexTab();
         this.app = this.resetApp();
         this.music.text = this.resetMusicText();
-        this.paginator.text = this.resetPaginator();
+        this.paginator.text = this.resetPaginatorText();
     }
 
     resetHeader() {
@@ -337,7 +337,7 @@ export class AppConfig implements myAppConfig {
         };
     }
 
-    resetPaginator(){
+    resetPaginatorText(){
         return {
             nextPage:dict[this.lang].music.text.nextPage,
             prevPage:dict[this.lang].music.text.prevPage,
@@ -352,7 +352,7 @@ export class AppConfig implements myAppConfig {
         this.indexTab = this.resetIndexTab();
         this.app = this.resetApp();
         this.music.text = this.resetMusicText();
-        this.paginator.text = this.resetPaginator();
+        this.paginator.text = this.resetPaginatorText();
     }
 }
 export let AppConfigJSON = new AppConfig();

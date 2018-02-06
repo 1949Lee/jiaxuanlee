@@ -16,7 +16,7 @@ import { appConfig } from '../../../app.config';
 export class LatestComponent implements OnInit {
   public latestList: LatstResult;
   public loading:boolean;
-  // public pageIndex:number = 0;
+  public pageIndex:number = 0;
 
   constructor(
     private movie: MusicService,
@@ -37,6 +37,9 @@ export class LatestComponent implements OnInit {
       this.logger.log(res)();
       this.latestList = res as LatstResult;
       this.loading = false;
+      // setTimeout(() => {
+      //   this.latestList.total = 61;
+      // }, 1500);
     });
   }
 
@@ -49,6 +52,7 @@ export class LatestComponent implements OnInit {
   changPage(index){
     this.loading = true;
     this.getList(index);
+    this.pageIndex = index;
   }
 
 }
