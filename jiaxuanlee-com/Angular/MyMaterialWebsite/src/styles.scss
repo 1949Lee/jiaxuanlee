@@ -8,7 +8,7 @@ body {
   min-height: 100%;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -56,6 +56,19 @@ button {
   outline: none !important;
 }
 
+.lee-button-hover .mat-button-focus-overlay{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.36);
+  z-index: 1;
+}
+
+.lee-button-hover:hover .mat-button-focus-overlay{
+  opacity: 1;
+}
+
 .lee-main-content {
   padding: 15px;
 }
@@ -100,80 +113,93 @@ button {
 }
 
 @for $i from 16 through 40 {
-  .lee-font-#{$i} { font-size: #{$i}px; }
+  .lee-font-#{$i} {
+    font-size: #{$i}px;
+  }
 }
 
 @for $i from 1 through 5 {
-  .lee-margin-top-#{$i}em { margin-top: #{$i}em; }
-  .lee-margin-bottom-#{$i}em { margin-bottom: #{$i}em; }
-  .lee-padding-right-#{$i}em { padding-right: #{$i}em; }
-  .lee-css-border-radius-#{$i} {border-radius: $i * 2px ;}
-  .lee-font-weight-#{$i} {font-weight:$i * 100;}
+  .lee-margin-top-#{$i}em {
+    margin-top: #{$i}em;
+  }
+  .lee-margin-bottom-#{$i}em {
+    margin-bottom: #{$i}em;
+  }
+  .lee-padding-right-#{$i}em {
+    padding-right: #{$i}em;
+  }
+  .lee-css-border-radius-#{$i} {
+    border-radius: $i * 2px;
+  }
+  .lee-font-weight-#{$i} {
+    font-weight: $i * 100;
+  }
 }
 
-.lee-layer{
+.lee-layer {
   position: absolute;
   z-index: 0;
 }
-.lee-black-bg{
+
+.lee-black-bg {
   background-color: black;
   width: 100%;
   height: 100%;
 }
 
-.lee-white{
-  background-color:white; 
+.lee-white {
+  background-color: white;
 }
 
 @for $i from 1 through 9 {
-  .lee-opacity-#{$i} { opacity: 0.1 * $i; }
+  .lee-opacity-#{$i} {
+    opacity: 0.1 * $i;
+  }
 }
 
-
-.lee-flex-box{
+.lee-flex-box {
   display: flex;
 }
 
-.lee-flex-box-col{
+.lee-flex-box-col {
   display: flex;
   flex-direction: column;
 }
 
-.lee-flex-box-center{
+.lee-flex-box-center {
   justify-content: center;
   align-content: center;
   align-items: center;
 }
 
-.lee-text-hide{
+.lee-text-hide {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
 }
-.lee-flex-fill-remain{
-  flex:auto;
+
+.lee-flex-fill-remain {
+  flex: auto;
 }
 
-.lee-fixed{
+.lee-fixed {
   position: fixed;
 }
 
-.lee-fixed.lee-layer{
+.lee-fixed.lee-layer {
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
 
-
-
-.lee-ul-no-style{
+.lee-ul-no-style {
   list-style: none;
-  padding-left:0;
+  padding-left: 0;
 }
 
-.lee-container-box{
-  margin:0 1.5em;
-  padding:1.5em 0;
+.lee-container-box {
+  margin: 0 1.5em;
+  padding: 1.5em 0;
 }

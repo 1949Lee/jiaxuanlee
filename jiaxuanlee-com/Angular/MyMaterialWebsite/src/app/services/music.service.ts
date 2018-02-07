@@ -45,8 +45,7 @@ export class MusicService {
         return tem;
       }) as Array<any>;
       End.code = res.code;
-      End.total = 60;
-      // End.total = res.total;
+      End.total = res.total;
       return End;
     });
   }

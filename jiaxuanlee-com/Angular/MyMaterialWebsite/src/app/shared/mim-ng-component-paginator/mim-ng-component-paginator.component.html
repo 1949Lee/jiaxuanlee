@@ -1,8 +1,19 @@
 <div class="lee-flex-box lee-flex-box-center lee-margin-top-1em lee-margin-bottom-1em lee-paginator-box">
-  <button color="primary" mat-raised-button (click)="prev()">
+  <button class="item lee-button-hover prev-button" color="primary" mat-raised-button (click)="prev()">
     <span>{{app.paginator.text.prevPage}}</span>
   </button>
-  <button color="primary" mat-raised-button (click)="next()">
+  <div class="item pager-wrapper">
+    <button [matTooltip]="app.music.text.firstPage" [matTooltipPosition]="'above'" class="lee-button-hover pager" mat-raised-button (click)="doChangePageIndex(0)">
+      <i class="fas fa-angle-double-left"></i>
+    </button>
+    <button class="lee-button-hover pager" mat-raised-button *ngFor="let pager of pagerShow" (click)="doChangePageIndex(pager.value)">
+      <span [innerHTML]="pager.text"></span>
+    </button>
+    <button [matTooltip]="app.music.text.lastPage" [matTooltipPosition]="'above'" class="lee-button-hover pager" mat-raised-button (click)="doChangePageIndex(pageSum-1)">
+        <i class="fas fa-angle-double-right"></i>
+    </button>
+  </div>
+  <button class="item lee-button-hover next-button" color="primary" mat-raised-button (click)="next()">
     <span>{{app.paginator.text.nextPage}}</span>
   </button>
 </div>

@@ -17,13 +17,14 @@ export class MimNgComponentPaginatorComponent implements OnInit, OnChanges {
   @Output('change') public changePageIndex: EventEmitter<number> = new EventEmitter<number>();
   public currerntIndex: number = 0;
   public pageSum: number = 0;
+  public pagerShow: Array<{[key:string]:any}>;
 
   constructor(
     private lee: LeeService,
     private logger: LoggerService,
     @Inject(appConfig) public app
   ) {
-
+    this.initPagerShow();
   }
 
   ngOnInit() {
@@ -43,21 +44,44 @@ export class MimNgComponentPaginatorComponent implements OnInit, OnChanges {
     }
   }
 
+  initPagerShow(){
+    this.pagerShow = new Array(this.app.paginator.shownSum);
+    this.pagerShow = this.pagerShow.fill({}).map((p,index)=>{
+      p = {};
+      p.value = index;
+      p.text = index+1;
+      return p
+    });
+  }
+
+  resetPagerShow(){
+    let start = this.currerntIndex - Math.floor(this.app.paginator.shownSum / 2) + 1;
+    this.pagerShow = this.pagerShow.fill({}).map((p,index)=>{
+      p = {};
+      p.value = index + start;
+      p.text = index+1 + start;
+      return p
+    });
+    this.logger.log(this.pagerShow)();
+  }
+
   next() {
     if (this.currerntIndex < this.pageSum - 1) {
-      this.currerntIndex += 1;
-      this.doChangePageIndex(this.currerntIndex);
+      this.doChangePageIndex(this.currerntIndex+1);
     }
   }
 
   prev() {
     if (this.currerntIndex > 0) {
-      this.currerntIndex -= 1;
-      this.doChangePageIndex(this.currerntIndex);
+      this.doChangePageIndex(this.currerntIndex-1);
     }
   }
 
   doChangePageIndex(index) {
     this.changePageIndex.emit(index);
+    this.currerntIndex = index;
+    if(this.currerntIndex > this.pagerShow[Math.floor(this.app.paginator.shownSum / 2)].value){
+      this.resetPagerShow();
+    }
   }
 }

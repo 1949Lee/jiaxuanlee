@@ -1,0 +1,16 @@
+.lee-paginator-box .item {
+  margin-right: 1em;
+}
+
+.lee-paginator-box .item:last-child {
+  margin-right: 0;
+}
+
+.lee-paginator-box .pager-wrapper .pager {
+  min-width: 1em;
+  margin-right: 0.5em;
+}
+
+.lee-paginator-box .pager-wrapper .pager:last-child {
+  margin-right: 0em;
+}

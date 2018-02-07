@@ -26,7 +26,7 @@ export class LatestComponent implements OnInit {
     @Inject(appConfig) private app
   ) {
     this.loading = true;
-    this.getList(0);
+    this.getList(this.pageIndex);
   }
 
   ngOnInit() {
@@ -34,7 +34,6 @@ export class LatestComponent implements OnInit {
 
   getList(index){
     this.movie.getLatest(index).subscribe((res: { [key: string]: any }) => {
-      this.logger.log(res)();
       this.latestList = res as LatstResult;
       this.loading = false;
       // setTimeout(() => {
