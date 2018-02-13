@@ -14,6 +14,10 @@ $margin-img-each:0.5em;
   margin-left: $margin-img-each * 2;
 }
 
+.lee-music-box.lee-music-box-xs .lee-music-paginator{
+  display: none;
+}
+
 .lee-music-box>.lee-flex-box:after {
   content: " ";
   flex: auto;
