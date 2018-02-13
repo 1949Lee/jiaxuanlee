@@ -25,6 +25,10 @@ export class MimNgComponentPaginatorComponent implements OnInit, OnChanges {
     @Inject(appConfig) public app
   ) {
     this.initPagerShow();
+    this.logger.log(this.lee.responsive.curr)();
+    this.lee.responsive.xs$.subscribe((res)=>{
+      this.logger.log(res.matches)();
+    });
   }
 
   ngOnInit() {
