@@ -7,6 +7,7 @@ import { LatstResult } from '../../../utils/music.utils';
 import * as _ from 'lodash';
 import { LeeService } from '../../../services/lee.service';
 import { appConfig } from '../../../app.config';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-latest',
@@ -27,6 +28,13 @@ export class LatestComponent implements OnInit {
   ) {
     this.loading = true;
     this.getList(this.pageIndex);
+    this.lee.contentScroll.scroll$.debounceTime(200).subscribe((res) => {
+      if(this.lee.responsive.all.xs.matches){
+        if($('mat-sidenav-content')[0].scrollHeight - this.app.footer.height -this.lee.viewport.ViewportSize().height - 50 <= res){
+          this.getNextPage();
+        }
+      }
+    })
   }
 
   ngOnInit() {
@@ -36,9 +44,6 @@ export class LatestComponent implements OnInit {
     this.movie.getLatest(index).subscribe((res: { [key: string]: any }) => {
       this.latestList = res as LatstResult;
       this.loading = false;
-      // setTimeout(() => {
-      //   this.latestList.total = 61;
-      // }, 1500);
     });
   }
 
@@ -52,6 +57,16 @@ export class LatestComponent implements OnInit {
     this.loading = true;
     this.getList(index);
     this.pageIndex = index;
+  }
+
+  getNextPage(){
+    this.loading = true;
+    this.pageIndex++;
+    this.movie.getLatest(this.pageIndex).subscribe((res: { [key: string]: any }) => {
+      this.latestList.albums = _.concat(this.latestList.albums,res.albums);
+      this.loading = false;
+    });
+    this.logger.log('新的一页')();
   }
 
 }
