@@ -70,3 +70,50 @@
   console.log(obj);
   console.log('has',Reflect.has(obj,'name'));
 }
+
+{
+  function personProxy(_person,validators){
+    return new Proxy(_person,{
+      _validators:validators,
+      set:function(_person,key,value){
+        if(Reflect.has(_person,key)){
+          if(this._validators[key](value)){
+            return Reflect.set(_person,key,value);
+          }
+          else{
+            throw console.error(`无法为${key}设置值${value}`);
+            return false;
+          }
+        }
+        else{
+          throw console.error(`没有找到${key}`);
+          return false;
+        }
+        
+      }
+    });
+  }
+
+  let personValidators = {
+    _name(value){
+      return typeof value == 'string';
+    },
+    _age(value){
+      return typeof value == 'number' &&Number.isInteger(value)&&value<150&&value>0;
+    }
+  }
+
+  class person{
+    constructor(name,age){
+      this._name = undefined;
+      this._age = undefined;
+      let _p  = personProxy(this,personValidators);
+      _p._name = name;
+      _p._age = age;
+      return _p;
+    }
+  }
+
+  let lee = new person('lee',25);
+  lee._age = 151;
+}
