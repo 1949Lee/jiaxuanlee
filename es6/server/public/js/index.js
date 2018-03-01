@@ -9645,67 +9645,99 @@ __webpack_require__(334);
 "use strict";
 
 
-{
-    // #构造函数#
-    var regex = new RegExp('xyz', 'i'); //第一个参数是字符串，第二个是修饰符
-    var regex2 = new RegExp(/xyz/i); //第一个参数是正则表达式，不接受第二个参数，否则会报错
-    console.log(regex.test('xyz123'), regex2.test('xyz123'));
-    console.log(regex.test('xyZ123'), regex2.test('xyZ123'));
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-    var regex3 = new RegExp(/abc/ig, 'i');
-    console.log(regex3.flags); //原有正则对象的修饰符是ig，它会被第二个参数i覆盖
-}
-
-// 字符串对象的4个使用正则表达式的方法： match(),replace(),search(),split()这四个方法全部调用RegExp的实例的方法。
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 {
-    var _regex = new RegExp('xyz', 'ig');
-    console.log(_regex.test('xyz0XYZ1xyz2'), _regex.exec('xyz0XYZ1xyz2'));
-}
+  // 简洁表示法
+  var o = 1;
+  var k = {
+    value: 2
+  };
+  var es5 = {
+    o: o,
+    k: k
+  };
+  var es6 = {
+    o: o,
+    k: k
+  };
+  console.log(es5, es6);
 
-{
-    // y修饰符
-    var s = 'bbbb_bbb_bb_b';
-    var a1 = /b+/g;
-    var a2 = new RegExp('b+', 'y');
-
-    console.log(a1.exec(s), a2.exec(s)); // ["bbbb"],["bbbb"]
-    console.log(a1.exec(s), a2.exec(s)); // ["bbb"],null
-
-    console.log(a1.sticky, a2.sticky); //表示是否开启了粘连模式
-}
-
-{
-    console.log('u修饰符', /^\uD83D/.test('\uD83D\uDC2A')); // true
-    console.log('u修饰符', /^(?:\uD83D(?![\uDC00-\uDFFF]))/.test('\uD83D\uDC2A')); // false
-    // 大括号表示Unicode字符，只有加上u才能识别
-    console.log(/\u{61}/.test('a')); // false
-    console.log(/a/.test('a')); // true
-    console.log(/(?:\uD842\uDFB7)/.test('𠮷')); // true
-    // 点（.）字符不能识别码点大于0xFFFF的Unicode字符，必须加上u修饰符。
-    var _s = '𠮷';
-    console.log('大于0xFFFF的Unicode字符', /^.$/.test(_s)); // false
-    console.log('使用u字符', /^(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])$/.test(_s)); // true
-
-    // 使用u修饰符后，所有量词都会正确识别大于码点大于0xFFFF的Unicode字符。
-    console.log('量词', /a{2}/.test('aa')); // true
-    console.log('量词', /a{2}/.test('aa')); // true
-    console.log('量词', /𠮷{2}/.test('𠮷𠮷')); // false
-    console.log('量词', /(?:\uD842\uDFB7){2}/.test('𠮷𠮷')); // true
+  var es5_method = {
+    hello: function hello() {
+      console.log('hello');
+    }
+  };
+  var es6_method = {
+    hello: function hello() {
+      console.log('hello');
+    }
+  };
+  console.log(es5_method.hello(), es6_method.hello());
 }
 
 {
-    // #正则表达式中，点（.）是一个特殊字符，代表任意的单个字符，但是行终止符（line terminator character）除外
-    // U+000A 换行符（\n）
-    // U+000D 回车符（\r）
-    // U+2028 行分隔符（line separator）
-    // U+2029 段分隔符（paragraph separator）
-    // 只是一个提案目前还不支持
-    // let reg=/test.go/s;
-    // console.log(reg.test('test\ngo'));
-    // console.log(reg.test('test\ngo'));
-    console.log('s变通方法', /foo.bar/.test('foo\nbar'));
-    console.log('s变通方法', /foo[^]bar/.test('foo\nbar'));
+  // 属性表达式
+  var a = 'b';
+  var es5_obj = {
+    a: 'c',
+    b: 'c'
+  };
+
+  var es6_obj = _defineProperty({}, a, 'c');
+
+  console.log(es5_obj, es6_obj);
+}
+
+{
+  // 新增API
+  console.log('字符串', Object.is('abc', 'abc'), 'abc' === 'abc');
+  console.log('数组', Object.is([], []), [] === []);
+
+  var object1 = {
+    a: 1,
+    b: 2,
+    c: 3
+  };
+
+  var object3 = {};
+
+  var object2 = Object.assign(object3, object1);
+
+  console.log(object3.c);
+
+  var test = { k: 123, o: 456 };
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = Object.entries(test)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var _ref = _step.value;
+
+      var _ref2 = _slicedToArray(_ref, 2);
+
+      var key = _ref2[0];
+      var value = _ref2[1];
+
+      console.log([key, value]);
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
 }
 
 /***/ })
