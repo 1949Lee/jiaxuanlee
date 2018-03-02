@@ -9645,85 +9645,89 @@ __webpack_require__(334);
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-  var desc = {};
-  Object['ke' + 'ys'](descriptor).forEach(function (key) {
-    desc[key] = descriptor[key];
-  });
-  desc.enumerable = !!desc.enumerable;
-  desc.configurable = !!desc.configurable;
-
-  if ('value' in desc || desc.initializer) {
-    desc.writable = true;
-  }
-
-  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-    return decorator(target, property, desc) || desc;
-  }, desc);
-
-  if (context && desc.initializer !== void 0) {
-    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-    desc.initializer = undefined;
-  }
-
-  if (desc.initializer === void 0) {
-    Object['define' + 'Property'](target, property, desc);
-    desc = null;
-  }
-
-  return desc;
-}
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 {
-  var _desc, _value, _class;
+  var music = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var newAlbum;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return initNewData();
 
-  var readonly = function readonly(target, name, descriptor) {
-    descriptor.writable = false;
-    return descriptor;
+            case 2:
+              newAlbum = _context.sent;
+              _context.t0 = console;
+              _context.next = 6;
+              return initAlbumData(newAlbum.albums[0].id);
+
+            case 6:
+              _context.t1 = _context.sent;
+
+              _context.t0.log.call(_context.t0, _context.t1);
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    return function music() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  //获取区
+  var initNewData = function initNewData() {
+    var promise = new Promise(function (resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", "http://localhost:3000/top/album?offset=0&limit=30");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          resolve(JSON.parse(xhr.responseText));
+        }
+      };
+      xhr.send();
+    });
+    return promise;
+  };
+  var initAlbumData = function initAlbumData(id) {
+    var promise = new Promise(function (resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", "http://localhost:3000/album?id=" + id);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          resolve(JSON.parse(xhr.responseText));
+        }
+      };
+      xhr.send();
+    });
+    return promise;
   };
 
-  var Test = (_class = function () {
-    function Test() {
-      _classCallCheck(this, Test);
-    }
+  music();
 
-    _createClass(Test, [{
-      key: 'time',
-      value: function time() {
-        return '2017-03-11';
-      }
-    }]);
-
-    return Test;
-  }(), (_applyDecoratedDescriptor(_class.prototype, 'time', [readonly], Object.getOwnPropertyDescriptor(_class.prototype, 'time'), _class.prototype)), _class);
-
-
-  var test = new Test();
-
-  // test.time=function(){
-  //   console.log('reset time');
-  // };
-
-  console.log(test.time());
-}
-
-{
-  var _class2;
-
-  var typename = function typename(target, name, descriptor) {
-    target.myname = 'hello';
-  };
-
-  var _Test = typename(_class2 = function _Test() {
-    _classCallCheck(this, _Test);
-  }) || _class2;
-
-  console.log('类修饰符', _Test.myname);
-  // 第三方库修饰器的js库：core-decorators; npm install core-decorators
+  // initNewData()
+  // .then((district)=>{
+  //     console.log(district);
+  //     // return initTownData(district);
+  // })
+  // .then((town)=>{
+  //     console.log('更新镇列表至HTML视图');
+  //     return initSchoolData(town);
+  // })
+  // .then((school)=>{
+  //     console.log('更新学校列表至HTML视图');
+  //     return;
+  // })
+  // .catch(function(err){//捕获错误。
+  //     console.log('catch',err);
+  // });
 }
 
 /***/ })

@@ -1,3 +1,3 @@
 import 'babel-polyfill';
 import Lottery from './lottery';
-import './class/lesson16'
+import './class/lesson17'
