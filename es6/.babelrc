@@ -5,5 +5,8 @@
                 "browsers": ["defaults"]
             }
         }]
+    ],
+    "plugins": [
+        "transform-decorators-legacy"
     ]
 }

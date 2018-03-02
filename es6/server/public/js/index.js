@@ -9645,78 +9645,85 @@ __webpack_require__(334);
 "use strict";
 
 
-{
-  // 基本定义
-  var ajax = function ajax(callback) {
-    console.log('执行');
-    setTimeout(function () {
-      callback && callback.call();
-    }, 1000);
-  };
-  ajax(function () {
-    console.log('timeout1');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
   });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
 }
 
 {
-  var _ajax = function _ajax() {
-    console.log('执行2');
-    return new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        resolve();
-      }, 1000);
-    });
+  var _desc, _value, _class;
+
+  var readonly = function readonly(target, name, descriptor) {
+    descriptor.writable = false;
+    return descriptor;
   };
 
-  _ajax().then(function () {
-    console.log('promise', 'timeout2');
-  });
-}
+  var Test = (_class = function () {
+    function Test() {
+      _classCallCheck(this, Test);
+    }
 
-{
-  var _ajax2 = function _ajax2() {
-    console.log('执行3');
-    return new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        resolve();
-      }, 1000);
-    });
-  };
-
-  _ajax2().then(function () {
-    return new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        resolve();
-      }, 2000);
-    });
-  }).then(function () {
-    console.log('timeout3');
-  });
-}
-
-{
-  var _ajax3 = function _ajax3(num) {
-    console.log('执行4');
-    return new Promise(function (resolve, reject) {
-      if (num > 5) {
-        resolve();
-      } else {
-        throw new Error('出错了');
+    _createClass(Test, [{
+      key: 'time',
+      value: function time() {
+        return '2017-03-11';
       }
-    });
+    }]);
+
+    return Test;
+  }(), (_applyDecoratedDescriptor(_class.prototype, 'time', [readonly], Object.getOwnPropertyDescriptor(_class.prototype, 'time'), _class.prototype)), _class);
+
+
+  var test = new Test();
+
+  // test.time=function(){
+  //   console.log('reset time');
+  // };
+
+  console.log(test.time());
+}
+
+{
+  var _class2;
+
+  var typename = function typename(target, name, descriptor) {
+    target.myname = 'hello';
   };
 
-  _ajax3(6).then(function () {
-    console.log('log', 6);
-  }).catch(function (err) {
-    console.log('catch', err);
-  });
+  var _Test = typename(_class2 = function _Test() {
+    _classCallCheck(this, _Test);
+  }) || _class2;
 
-  _ajax3(3).then(function () {
-    console.log('log', 3);
-  }).catch(function (err) {
-    console.log('catch', err);
-  });
+  console.log('类修饰符', _Test.myname);
+  // 第三方库修饰器的js库：core-decorators; npm install core-decorators
 }
 
 /***/ })
