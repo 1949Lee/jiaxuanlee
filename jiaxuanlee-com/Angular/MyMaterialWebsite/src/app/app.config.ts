@@ -182,7 +182,7 @@ export class AppConfig implements myAppConfig {
         asssetsImgTech: `${$asssets}img/tech`,
     }
     serverURL = ``;
-    musicURL = `http://localhost:3000`;
+    musicURL = `http://localhost:1000`;
     carousel = {
         slides: [
             { imgURL: `${$asssetsImg}carousel/slide1.jpg`, active: true },
