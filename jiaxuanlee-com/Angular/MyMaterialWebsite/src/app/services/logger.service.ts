@@ -10,7 +10,7 @@ export class LoggerService {
       return console.log.bind(this, obj);
     }
     else {
-      return (e) => { };
+      return function (e):void{ };
     }
 
   }

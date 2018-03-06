@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
     private activeRoute:ActivatedRoute,
     private logger: LoggerService,
     @Inject(appConfig) public app,
-    private lee: LeeService
+    public lee: LeeService
    ) {
     this.logger.log(this.app.header)();
     this.router.events.subscribe((e: any) => {

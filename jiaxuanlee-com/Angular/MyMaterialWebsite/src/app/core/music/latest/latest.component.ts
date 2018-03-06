@@ -20,11 +20,11 @@ export class LatestComponent implements OnInit {
   public pageIndex:number = 0;
 
   constructor(
-    private movie: MusicService,
+    public movie: MusicService,
     private http: HttpClient,
     private logger: LoggerService,
-    private lee:LeeService,
-    @Inject(appConfig) private app
+    public lee:LeeService,
+    @Inject(appConfig) public app
   ) {
     this.loading = true;
     this.getList(this.pageIndex);

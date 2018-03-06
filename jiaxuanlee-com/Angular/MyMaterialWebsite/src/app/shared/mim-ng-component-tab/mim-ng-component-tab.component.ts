@@ -17,7 +17,7 @@ export class MimNgComponentTabComponent implements OnInit {
   constructor(
     @Inject(appConfig) public app,
     private logger: LoggerService,
-    private lee: LeeService
+    public lee: LeeService
   ) {
     this.logger.log(this.app.indexTab)();
     this.viewport = this.lee.viewport.ViewportSize();
