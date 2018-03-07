@@ -16,7 +16,7 @@
     <li *ngFor="let album of latestList?.albums">
       <div class="album-box">
         <div class="album-img-wrapper" [matTooltip]="album.name" [matTooltipPosition]="'below'">
-          <img class="album-img" [src]="'https'+(album.picUrl|slice:4)" alt="网易云音乐">
+          <img class="album-img" [src]="'https'+(album.picUrl|slice:4)" alt="如有侵权，请联系我">
         </div>
         <div class="lee-flex-box lee-flex-box-center lee-text-hide album-name">
           <span class="lee-flex-fill-remain lee-text-hide album-name-title" [innerHTML]="album.name" [matTooltip]="album.name" [matTooltipPosition]="'above'"></span>
