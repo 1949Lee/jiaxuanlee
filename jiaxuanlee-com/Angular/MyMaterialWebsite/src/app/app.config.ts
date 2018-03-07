@@ -244,6 +244,7 @@ export class AppConfig implements myAppConfig {
                 {
                     id: 'index', text: dict[this.lang].header.items['1'],
                     active: true,
+                    navigated:true,
                     path: 'index',
                     icon: 'fas fa-home',
                     subItems: null
@@ -252,6 +253,8 @@ export class AppConfig implements myAppConfig {
                     id: 'music', text: dict[this.lang].header.items['2'],
                     active: false,
                     icon: 'fas fa-film',
+                    navigated:false,
+                    path:'music',
                     subItems: [
                         { text: dict[this.lang].header.items['21'], icon: 'fas fa-newspaper', path: 'music/latest' },
                         { text: dict[this.lang].header.items['22'], icon: 'fas fa-trophy', path: 'music/top' }
@@ -260,6 +263,7 @@ export class AppConfig implements myAppConfig {
                 {
                     id: 'form', text: dict[this.lang].header.items['3'],
                     active: false,
+                    navigated:true,
                     icon: 'fas fa-thumbs-up',
                     subItems: null,
                     path:"form"
