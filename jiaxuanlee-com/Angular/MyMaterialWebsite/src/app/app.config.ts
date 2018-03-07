@@ -261,7 +261,8 @@ export class AppConfig implements myAppConfig {
                     id: 'form', text: dict[this.lang].header.items['3'],
                     active: false,
                     icon: 'fas fa-thumbs-up',
-                    subItems: null
+                    subItems: null,
+                    path:"form"
                 },
             ]
         };
