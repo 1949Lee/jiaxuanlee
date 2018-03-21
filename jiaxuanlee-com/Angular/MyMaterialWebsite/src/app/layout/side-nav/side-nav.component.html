@@ -1,15 +1,23 @@
 <mat-accordion displayMode="flat" multi="true">
   <ng-container *ngFor="let item of app.header.items;last as isLast">
-    <mat-expansion-panel [hideToggle]="item.subItems == null">
-      <mat-expansion-panel-header>
-        <!-- <mat-panel-title> -->
-          <button mat-button>
-            <i [class]="'' + item.icon"></i>
-            <span>{{item.text}}</span>
-          </button>
-        <!-- </mat-panel-title> -->
-      </mat-expansion-panel-header>
-    </mat-expansion-panel>
+    <ng-container *ngIf="item.subItems != null; else elseTemplate">
+      <mat-expansion-panel class="mat-elevation-z0 sidenav-item">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span>
+              <i [class]="'' + item.icon"></i>
+              <span>{{item.text}}</span>
+            </span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <button class="sidenav-item" mat-button>
+        <i [class]="'' + item.icon"></i>
+        <span>{{item.text}}</span>
+      </button>
+    </ng-template>
     <mat-divider *ngIf="!isLast"></mat-divider>
   </ng-container>
 </mat-accordion>
