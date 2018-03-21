@@ -11,6 +11,7 @@ import {
   MatSelectModule,
   MatFormFieldModule,
   MatExpansionModule,
+  MatDividerModule,
 } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { loadSvgResources } from '../../utils/svg.utils';
@@ -27,6 +28,7 @@ import { loadSvgResources } from '../../utils/svg.utils';
     MatSelectModule,
     MatFormFieldModule,
     MatExpansionModule,
+    MatDividerModule,
   ],
   exports: [
     MatSidenavModule,
@@ -39,6 +41,7 @@ import { loadSvgResources } from '../../utils/svg.utils';
     MatSelectModule,
     MatFormFieldModule,
     MatExpansionModule,
+    MatDividerModule,
   ],
   declarations: []
 })
