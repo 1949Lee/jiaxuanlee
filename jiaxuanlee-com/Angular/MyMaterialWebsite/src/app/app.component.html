@@ -2,7 +2,7 @@
   <!-- <mat-sidenav #snav [opened]="sideNavOpened" [mode]="mobileQuery.matches ? 'over' : 'side'" > -->
   <mat-sidenav #snav [opened]="sideNavOpened" [mode]="true ? 'over' : 'side'">
     <mat-nav-list>
-      <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+      <div class="lee-sidenav-content"></div>
     </mat-nav-list>
   </mat-sidenav>
 
